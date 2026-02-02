@@ -7,6 +7,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const User = require("./models/userModel");
 const path = require("path");
+const { createSecretToken } = require("./models/SecretToken.js");
+const bcrypt = require("bcryptjs");
 
 app.use(express.static("../assets"));
 
@@ -20,7 +22,6 @@ app.set("views", path.join(process.cwd(), "../Frontened"));
 app.use(express.static(path.join(process.cwd(), "../Frontened")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 let mongouser = process.env.MONGO_DB_USER;
 let mongopass = process.env.MONGO_DB_PASS;
@@ -44,34 +45,41 @@ app.get("/", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-    res.render("login");
+  res.render("login");
+});
+
+app.post("/signup", async (req, res) => {
+  let data = req.body;
+  await User.insertOne({
+    firstname: data.firstname,
+    lastname: data.lastname,
+    email: data.email,
+    password: data.password,
+    phone: data.phone,
   });
 
-app.post("/signup", async (req,res)=>{
-    let data = req.body;
-    await User.insertOne({
-        firstname: data.firstname,
-        lastname: data.lastname,
-        email: data.email,
-        password: data.password,
-        phone: data.phone,
-    })
-   
-    res.send("signup");
-})
-app.get("/signup",(req,res)=>{
-    res.render("signup");
-})
+  res.redirect("/login");
+});
+app.get("/signup", (req, res) => {
+  res.render("signup");
+});
 
 app.post("/login", async (req, res) => {
-    let data = req.body;
-    let user = await User.findOne({
-        email: data.email,
-        password: data.password,
-    });
-    if (user) {
-        res.send("Login Successful");
+  let data = req.body;
+  let user = await User.findOne({
+    email: data.email,
+  });
+
+  if (user) {
+    const auth = await bcrypt.compare(req.body.password,user.password);
+    if (auth) {
+      res.json({ status: "ok", user: true });
     } else {
-        res.send("Invalid Credentials");
+      res.json({ status: "error", user: false });
     }
+  } else {
+    res.send("Invalid Credentials");
+  }
+
+  
 });
