@@ -1,0 +1,83 @@
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="/"  class="nav-logo"><div>♻️ EcoBin</div></a>
+        <div class="nav-links">
+            <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="#features"><i class="fa-solid fa-location-dot"></i> Find Bin</a>
+            <a href="#how-it-works"><i class="fa-solid fa-qrcode"></i> Scan</a>
+            <a href="#rewards"><i class="fa-solid fa-trophy"></i> Rewards</a>
+            <a href="/dashboard"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+        </div>
+        <div class="nav-actions">
+            <a class="btn-admin">Admin</a>
+            <a class="btn-profile" href="/login">Profile</a>
+        </div>
+    </div>
+</nav>
+<style>
+    .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #10b981;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #475569;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: #10b981; }
+
+.nav-actions { display: flex; gap: 12px; }
+
+.btn-admin {
+    background: #ecfdf5;
+    color: #10b981;
+    border: 1px solid #10b981;
+    padding: 8px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.btn-profile {
+    text-decoration: none;
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+</style>

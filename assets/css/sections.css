@@ -1,0 +1,24 @@
+/* Update this selector to match the one you are using (icon-circle or icon-box) */
+.icon-circle, .icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    margin: 0 auto 25px auto; /* Horizontal auto margins center the box itself */
+    
+    /* FLEXBOX CENTERING: This centers the icon inside the box */
+    display: flex;
+    align-items: center;    /* Vertical center */
+    justify-content: center; /* Horizontal center */
+    
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Ensure the card itself centers its text content */
+.card, .feature-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the heading and paragraph */
+    padding: 40px;
+}

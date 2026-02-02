@@ -7,8 +7,12 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const User = require("./models/userModel");
 const path = require("path");
-const { createSecretToken } = require("./models/SecretToken.js");
+
 const bcrypt = require("bcryptjs");
+const session = require("express-session");
+const flash = require("connect-flash");
+const cookieParser = require("cookie-parser");
+
 
 app.use(express.static("../assets"));
 
@@ -22,6 +26,7 @@ app.set("views", path.join(process.cwd(), "../Frontened"));
 app.use(express.static(path.join(process.cwd(), "../Frontened")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 let mongouser = process.env.MONGO_DB_USER;
 let mongopass = process.env.MONGO_DB_PASS;
@@ -33,12 +38,42 @@ mongoose
   .catch((err) => console.error(" Mongo Error:", err.message));
 
 // Middleware
+
+app.use(
+    session({
+      secret: "your_secret_key",
+      resave: false,
+      saveUninitialized: false,
+    })
+  );
+
 app.use(bodyParser.json());
 app.use(cors());
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+app.use(flash());
+
+app.use((req, res, next) => {
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    next();
+  });
+
+app.use((req, res, next) => {
+    res.locals.username = req.cookies.username;
+    next();
+  });
+
+const isAuthenticated = (req, res, next) => {
+    if (!req.cookies.username) {
+      return res.redirect("/login");
+    }
+    next();
+  };
+
 // Sample route
 app.get("/", (req, res) => {
   res.render("index");
@@ -73,13 +108,28 @@ app.post("/login", async (req, res) => {
   if (user) {
     const auth = await bcrypt.compare(req.body.password,user.password);
     if (auth) {
-      res.json({ status: "ok", user: true });
+        res.cookie("username", user.firstname, {
+            httpOnly: true,        // cannot be accessed by JS
+            maxAge: 3 * 60 * 60 * 1000 // 3 days
+          });
+
+      res.redirect("/");
     } else {
-      res.json({ status: "error", user: false });
+        console.log("Password Incorrect");
+        req.flash("error", "Password Incorrect");
+        res.redirect('/login');
     }
   } else {
-    res.send("Invalid Credentials");
+    req.flash("error", "User Not Found");
+    res.redirect('/login');
   }
-
-  
 });
+
+app.get("/dashboard", isAuthenticated, (req, res) => {
+    res.render("dashboard");
+  });
+
+app.get("/logout", (req, res) => {
+    res.clearCookie("username");
+    res.redirect("/");
+  });

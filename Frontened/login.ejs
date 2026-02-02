@@ -4,9 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart E-Waste Bin System - Authentication</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
+    <% if (success.length > 0) { %>
+        <div class="alert alert-success">
+          <%= success[0] %>
+        </div>
+      <% } %>
+      
+      <% if (error.length > 0) { %>
+        <div class="alert alert-danger">
+          <%= error[0] %>
+        </div>
+      <% } %>
+      
+      <%- include("./navbar.ejs") %>
+
     <div class="container">
         <!-- Background Elements -->
         <div class="background-shapes">
@@ -254,5 +271,10 @@
     </div>
 
     <script src="/JS/login.js"></script>
+    <script>
+        setTimeout(() => {
+          document.querySelectorAll(".alert").forEach(el => el.remove());
+        }, 3000);
+      </script>
 </body>
 </html>

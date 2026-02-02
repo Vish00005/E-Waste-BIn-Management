@@ -70,7 +70,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: 10;
     pointer-events: none;
 }
 
@@ -80,6 +80,7 @@ body {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     animation: float 20s ease-in-out infinite;
+   
 }
 
 .shape-1 {
@@ -88,6 +89,8 @@ body {
     top: -100px;
     left: -100px;
     animation-delay: 0s;
+
+    z-index: 1000;
 }
 
 .shape-2 {
@@ -688,3 +691,25 @@ body {
 .input-wrapper.success input {
     border-color: var(--success);
 }
+
+.alert {
+    position: absolute;
+    padding: 10px;
+    margin: 0px 0;
+    border-radius: 4px;
+    text-align: center;
+    justify-self:center;
+    width: 30%;
+    top: 0;
+    left: 35%;
+    font-weight: bold;
+    z-index: 1001;
+  }
+  .alert-success {
+    background: green;
+    color: white;
+  }
+  .alert-danger {
+    background: red;
+    color: white;
+  }
