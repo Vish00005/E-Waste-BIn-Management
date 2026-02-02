@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart E-Waste Bin System - Authentication</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Background Elements -->
+        <div class="background-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+
+        <!-- Left Panel - Branding -->
+        <div class="left-panel">
+            <div class="branding">
+                <div class="logo">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="60" height="60" rx="12" fill="url(#gradient1)"/>
+                        <path d="M30 15L20 25H25V35H35V25H40L30 15Z" fill="white"/>
+                        <rect x="18" y="38" width="24" height="6" rx="2" fill="white"/>
+                        <defs>
+                            <linearGradient id="gradient1" x1="0" y1="0" x2="60" y2="60">
+                                <stop offset="0%" style="stop-color:#10b981"/>
+                                <stop offset="100%" style="stop-color:#059669"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h1>Smart E-Waste Bin System</h1>
+                <p class="tagline">Revolutionizing electronic waste management through AI and smart technology</p>
+                
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon">📍</div>
+                        <div class="feature-text">
+                            <h3>Location-Based Bins</h3>
+                            <p>Find the nearest e-waste bin instantly</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🤖</div>
+                        <div class="feature-text">
+                            <h3>AI-Powered Detection</h3>
+                            <p>Automatic waste classification and sorting</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🌍</div>
+                        <div class="feature-text">
+                            <h3>Eco-Friendly Impact</h3>
+                            <p>Track your environmental contribution</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - Forms -->
+        <div class="right-panel">
+            <div class="form-container">
+                <!-- Login Form -->
+                <div class="form-wrapper active" id="loginForm">
+                    <div class="form-header">
+                        <h2>Welcome Back</h2>
+                        <p>Sign in to continue to your account</p>
+                    </div>
+
+                    <form action="#" method="POST" class="auth-form">
+                        <div class="form-group">
+                            <label for="login-email">Email Address</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M3.33301 5.83333L9.99967 10.8333L16.6663 5.83333M3.33301 5H16.6663C17.5868 5 18.333 5.74619 18.333 6.66667V13.3333C18.333 14.2538 17.5868 15 16.6663 15H3.33301C2.41253 15 1.66634 14.2538 1.66634 13.3333V6.66667C1.66634 5.74619 2.41253 5 3.33301 5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <input type="email" id="login-email" name="email" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5.83301 9.16667V6.66667C5.83301 4.36548 7.69848 2.5 9.99967 2.5C12.3009 2.5 14.1663 4.36548 14.1663 6.66667V9.16667M9.99967 12.0833V13.75M6.66634 17.5H13.333C14.2535 17.5 14.9997 16.7538 14.9997 15.8333V10.8333C14.9997 9.91286 14.2535 9.16667 13.333 9.16667H6.66634C5.74586 9.16667 4.99967 9.91286 4.99967 10.8333V15.8333C4.99967 16.7538 5.74586 17.5 6.66634 17.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+                                <button type="button" class="toggle-password" onclick="togglePassword('login-password')">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M2.5 10C2.5 10 5 4.16667 10 4.16667C15 4.16667 17.5 10 17.5 10C17.5 10 15 15.8333 10 15.8333C5 15.8333 2.5 10 2.5 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="remember">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                            <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            Sign In
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4.16699 10H15.8337M15.8337 10L10.8337 5M15.8337 10L10.8337 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+
+                        <div class="divider">
+                            <span>or continue with</span>
+                        </div>
+
+                        <div class="social-login">
+                            <button type="button" class="btn btn-social">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M18.1713 8.36788H17.5001V8.33329H10.0001V11.6666H14.7096C14.0225 13.6069 12.1763 15 10.0001 15C7.23885 15 5.00009 12.7612 5.00009 9.99996C5.00009 7.23871 7.23885 4.99996 10.0001 4.99996C11.2746 4.99996 12.4342 5.48079 13.3171 6.26621L15.6742 3.90913C14.1859 2.52204 12.1951 1.66663 10.0001 1.66663C5.39801 1.66663 1.66676 5.39788 1.66676 9.99996C1.66676 14.602 5.39801 18.3333 10.0001 18.3333C14.6022 18.3333 18.3334 14.602 18.3334 9.99996C18.3334 9.44121 18.2759 8.89579 18.1713 8.36788Z" fill="#FFC107"/>
+                                    <path d="M2.62793 6.12121L5.36585 8.12954C6.10668 6.29538 7.90043 5.00038 10.0004 5.00038C11.2754 5.00038 12.4346 5.48121 13.3175 6.26663L15.6746 3.90954C14.1863 2.52246 12.1954 1.66704 10.0004 1.66704C6.79918 1.66704 4.02335 3.47371 2.62793 6.12121Z" fill="#FF3D00"/>
+                                    <path d="M10.0001 18.3333C12.1526 18.3333 14.1084 17.5095 15.5876 16.17L13.0084 13.9875C12.1434 14.6291 11.0859 15.0008 10.0001 15C7.83259 15 5.99176 13.6179 5.29843 11.6891L2.58176 13.7829C3.96009 16.4816 6.76176 18.3333 10.0001 18.3333Z" fill="#4CAF50"/>
+                                    <path d="M18.1713 8.36796H17.5V8.33337H10V11.6667H14.7096C14.3809 12.5902 13.7889 13.3972 13.0067 13.9879L13.0079 13.9871L15.5871 16.1696C15.4046 16.3355 18.3333 14.1667 18.3333 10C18.3333 9.44129 18.2758 8.89587 18.1713 8.36796Z" fill="#1976D2"/>
+                                </svg>
+                                Google
+                            </button>
+                            <button type="button" class="btn btn-social">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z" fill="currentColor"/>
+                                </svg>
+                                GitHub
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="form-footer">
+                        <p>Don't have an account? <a href="#" onclick="switchForm('signup')">Sign Up</a></p>
+                    </div>
+                </div>
+
+                <!-- Signup Form -->
+                <div class="form-wrapper" id="signupForm">
+                    <div class="form-header">
+                        <h2>Create Account</h2>
+                        <p>Join us in making the world cleaner</p>
+                    </div>
+
+                    <form action="/signup" method="POST" class="auth-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="signup-firstname">First Name</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10 10C12.0711 10 13.75 8.32107 13.75 6.25C13.75 4.17893 12.0711 2.5 10 2.5C7.92893 2.5 6.25 4.17893 6.25 6.25C6.25 8.32107 7.92893 10 10 10ZM10 10C6.54822 10 3.75 12.7982 3.75 16.25M10 10C13.4518 10 16.25 12.7982 16.25 16.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <input type="text" id="signup-firstname" name="firstname" placeholder="John" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="signup-lastname">Last Name</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10 10C12.0711 10 13.75 8.32107 13.75 6.25C13.75 4.17893 12.0711 2.5 10 2.5C7.92893 2.5 6.25 4.17893 6.25 6.25C6.25 8.32107 7.92893 10 10 10ZM10 10C6.54822 10 3.75 12.7982 3.75 16.25M10 10C13.4518 10 16.25 12.7982 16.25 16.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <input type="text" id="signup-lastname" name="lastname" placeholder="Doe" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signup-email">Email Address</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M3.33301 5.83333L9.99967 10.8333L16.6663 5.83333M3.33301 5H16.6663C17.5868 5 18.333 5.74619 18.333 6.66667V13.3333C18.333 14.2538 17.5868 15 16.6663 15H3.33301C2.41253 15 1.66634 14.2538 1.66634 13.3333V6.66667C1.66634 5.74619 2.41253 5 3.33301 5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <input type="email" id="signup-email" name="email" placeholder="john.doe@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signup-phone">Phone Number</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M2.5 4.16667C2.5 3.24619 3.24619 2.5 4.16667 2.5H6.39548C6.77104 2.5 7.10214 2.75123 7.19758 3.11407L8.11213 6.63965C8.2124 7.02026 8.04827 7.41999 7.71475 7.60764L6.01654 8.54902C6.94479 10.7137 8.61967 12.3886 10.7843 13.3168L11.7257 11.6186C11.9134 11.285 12.3131 11.121 12.6937 11.2213L16.2193 12.1358C16.5821 12.2313 16.8333 12.5624 16.8333 12.9379V15.1667C16.8333 16.0871 16.0871 16.8333 15.1667 16.8333H14.1667C7.63832 16.8333 2.5 11.695 2.5 5.16667V4.16667Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <input type="tel" id="signup-phone" name="phone" placeholder="+91 98765 43210" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5.83301 9.16667V6.66667C5.83301 4.36548 7.69848 2.5 9.99967 2.5C12.3009 2.5 14.1663 4.36548 14.1663 6.66667V9.16667M9.99967 12.0833V13.75M6.66634 17.5H13.333C14.2535 17.5 14.9997 16.7538 14.9997 15.8333V10.8333C14.9997 9.91286 14.2535 9.16667 13.333 9.16667H6.66634C5.74586 9.16667 4.99967 9.91286 4.99967 10.8333V15.8333C4.99967 16.7538 5.74586 17.5 6.66634 17.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <input type="password" id="signup-password" name="password" placeholder="Create a strong password" required>
+                                <button type="button" class="toggle-password" onclick="togglePassword('signup-password')">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M2.5 10C2.5 10 5 4.16667 10 4.16667C15 4.16667 17.5 10 17.5 10C17.5 10 15 15.8333 10 15.8333C5 15.8333 2.5 10 2.5 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="password-strength">
+                                <div class="strength-bar">
+                                    <div class="strength-fill" id="strengthFill"></div>
+                                </div>
+                                <span class="strength-text" id="strengthText">Password strength</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signup-confirm-password">Confirm Password</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5.83301 9.16667V6.66667C5.83301 4.36548 7.69848 2.5 9.99967 2.5C12.3009 2.5 14.1663 4.36548 14.1663 6.66667V9.16667M9.99967 12.0833V13.75M6.66634 17.5H13.333C14.2535 17.5 14.9997 16.7538 14.9997 15.8333V10.8333C14.9997 9.91286 14.2535 9.16667 13.333 9.16667H6.66634C5.74586 9.16667 4.99967 9.91286 4.99967 10.8333V15.8333C4.99967 16.7538 5.74586 17.5 6.66634 17.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <input type="password" id="signup-confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+                                <button type="button" class="toggle-password" onclick="togglePassword('signup-confirm-password')">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M2.5 10C2.5 10 5 4.16667 10 4.16667C15 4.16667 17.5 10 17.5 10C17.5 10 15 15.8333 10 15.8333C5 15.8333 2.5 10 2.5 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="terms" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            Create Account
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4.16699 10H15.8337M15.8337 10L10.8337 5M15.8337 10L10.8337 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <div class="form-footer">
+                        <p>Already have an account? <a href="#" onclick="switchForm('login')">Sign In</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/login.js"></script>
+</body>
+</html>
