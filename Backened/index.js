@@ -68,10 +68,11 @@ app.use((req, res, next) => {
   });
 
 const isAuthenticated = (req, res, next) => {
-    if (!req.cookies.username) {
-      return res.redirect("/login");
+    if (req.cookies.username) {
+      return next();
     }
-    next();
+    req.session.redirectTo = req.originalUrl;
+  res.redirect("/login");
   };
 
 // Sample route
@@ -113,9 +114,11 @@ app.post("/login", async (req, res) => {
             maxAge: 3 * 60 * 60 * 1000 // 3 days
           });
 
-      res.redirect("/");
+          const redirectPath = req.session.redirectTo || "/";
+          delete req.session.redirectTo;
+          res.redirect(redirectPath);
     } else {
-        console.log("Password Incorrect");
+      
         req.flash("error", "Password Incorrect");
         res.redirect('/login');
     }
@@ -124,6 +127,10 @@ app.post("/login", async (req, res) => {
     res.redirect('/login');
   }
 });
+
+app.get("/profile", isAuthenticated, (req, res) => {
+    res.render("profile");
+  });
 
 app.get("/dashboard", isAuthenticated, (req, res) => {
     res.render("dashboard");
