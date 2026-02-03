@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoBin - Rewards Center</title>
+    <meta name="description" content="Earn points, unlock achievements, and redeem exciting rewards">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">
+                    <div class="logo-icon">♻️</div>
+                    <span class="logo-text">EcoBin</span>
+                </div>
+            </div>
+            
+            <div class="nav-center">
+                <button class="nav-btn">📍 Find Bin</button>
+                <button class="nav-btn">📱 Scan</button>
+                <button class="nav-btn active">⭐ Rewards</button>
+                <button class="nav-btn">📊 Dashboard</button>
+            </div>
+            
+            <div class="nav-right">
+                <button class="btn-secondary">Admin</button>
+                <button class="btn-primary">👤 Profile</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="rewards-header">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1 class="header-title">Rewards Center</h1>
+                    <p class="header-subtitle">Earn points, unlock achievements, and redeem exciting rewards</p>
+                </div>
+                <div class="points-display">
+                    <div class="trophy-icon">🏆</div>
+                    <div class="points-info">
+                        <span class="points-label">Your Points</span>
+                        <span class="points-value" id="totalPoints">1,250</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card" data-stat="items">
+                <div class="stat-icon green">✓</div>
+                <div class="stat-info">
+                    <div class="stat-value">47</div>
+                    <div class="stat-label">Items Recycled</div>
+                </div>
+            </div>
+
+            <div class="stat-card" data-stat="co2">
+                <div class="stat-icon blue">🌊</div>
+                <div class="stat-info">
+                    <div class="stat-value">23.5 kg</div>
+                    <div class="stat-label">CO2 Saved</div>
+                </div>
+            </div>
+
+            <div class="stat-card" data-stat="rank">
+                <div class="stat-icon yellow">⭐</div>
+                <div class="stat-info">
+                    <div class="stat-value">#156</div>
+                    <div class="stat-label">Leaderboard</div>
+                </div>
+            </div>
+
+            <div class="stat-card" data-stat="streak">
+                <div class="stat-icon orange">☀️</div>
+                <div class="stat-info">
+                    <div class="stat-value">12 days</div>
+                    <div class="stat-label">Current Streak</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <div class="progress-header">
+                <div class="level-badge">
+                    <span class="level-icon">⭐</span>
+                    <span>Level 8</span>
+                </div>
+                <span class="level-subtitle">Eco Enthusiast</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-info">
+                    <span class="next-level">Next Level:</span>
+                    <span class="points-needed">35 pts to go</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs-container">
+            <button class="tab active" data-tab="rewards">⭐ Rewards</button>
+            <button class="tab" data-tab="achievements">🏅 Achievements</button>
+            <button class="tab" data-tab="leaderboard">📊 Leaderboard</button>
+        </div>
+
+        <div class="tab-content active" id="rewards-content">
+            <div class="rewards-grid"></div>
+        </div>
+
+        <div class="tab-content" id="achievements-content">
+            <div class="achievements-grid"></div>
+        </div>
+
+        <div class="tab-content" id="leaderboard-content">
+            <div class="leaderboard-container"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="logo-icon">♻️</div>
+                    <span class="logo-text">EcoBin</span>
+                </div>
+                <p class="footer-tagline">Making e-waste recycling simple, rewarding, and transparent for everyone.</p>
+                <p class="footer-motto">🌱 Saving the planet, one device at a time</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#find-bin">Find a Bin</a></li>
+                    <li><a href="#scan">Scan E-Waste</a></li>
+                    <li><a href="#rewards">Rewards</a></li>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#guide">E-Waste Guide</a></li>
+                    <li><a href="#impact">Environmental Impact</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul class="footer-contact">
+                    <li>📧 hello@ecobin.app</li>
+                    <li>📞 +1 (555) 123-4567</li>
+                    <li>📍 San Francisco, CA</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 EcoBin. All rights reserved.</p>
+            <p>Made with <span class="heart">❤️</span> for a greener future</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
