@@ -5,33 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoBin - Rewards Center</title>
     <meta name="description" content="Earn points, unlock achievements, and redeem exciting rewards">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/rewards.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-left">
-                <div class="logo">
-                    <div class="logo-icon">♻️</div>
-                    <span class="logo-text">EcoBin</span>
-                </div>
-            </div>
-            
-            <div class="nav-center">
-                <button class="nav-btn">📍 Find Bin</button>
-                <button class="nav-btn">📱 Scan</button>
-                <button class="nav-btn active">⭐ Rewards</button>
-                <button class="nav-btn">📊 Dashboard</button>
-            </div>
-            
-            <div class="nav-right">
-                <button class="btn-secondary">Admin</button>
-                <button class="btn-primary">👤 Profile</button>
-            </div>
-        </div>
-    </nav>
-
+    <%- include("./navbar.ejs") %>
     <main class="main-content">
         <div class="rewards-header">
             <div class="header-content">
@@ -121,52 +100,8 @@
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <div class="logo-icon">♻️</div>
-                    <span class="logo-text">EcoBin</span>
-                </div>
-                <p class="footer-tagline">Making e-waste recycling simple, rewarding, and transparent for everyone.</p>
-                <p class="footer-motto">🌱 Saving the planet, one device at a time</p>
-            </div>
+    <%- include("./footer.ejs") %>
 
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#find-bin">Find a Bin</a></li>
-                    <li><a href="#scan">Scan E-Waste</a></li>
-                    <li><a href="#rewards">Rewards</a></li>
-                    <li><a href="#dashboard">Dashboard</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Resources</h3>
-                <ul class="footer-links">
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#guide">E-Waste Guide</a></li>
-                    <li><a href="#impact">Environmental Impact</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <ul class="footer-contact">
-                    <li>📧 hello@ecobin.app</li>
-                    <li>📞 +1 (555) 123-4567</li>
-                    <li>📍 San Francisco, CA</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 EcoBin. All rights reserved.</p>
-            <p>Made with <span class="heart">❤️</span> for a greener future</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <script src="/JS/rewards.js"></script>
 </body>
 </html>

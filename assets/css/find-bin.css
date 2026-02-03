@@ -1,0 +1,302 @@
+/* BASE STYLES */
+body {
+  background-color: #f8fafc;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  color: #1e293b;
+}
+
+/* HEADER WITH MINT GRADIENT (Screenshot 380) */
+.find-header {
+  background: linear-gradient(180deg, #6ee7b7 0%, #f8fafc 100%);
+  padding: 100px 5% 40px 5%;
+}
+
+.header-content h1 {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  color: #064e3b;
+}
+.header-content p {
+  color: #065f46;
+  opacity: 0.8;
+  font-size: 1.1rem;
+}
+
+.find-container {
+  padding: 0 5% 50px 5%;
+}
+
+/* FILTER BAR */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  background: white;
+  padding: 15px 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.filter-label {
+  font-weight: 600;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+.filter-options {
+  display: flex;
+  gap: 12px;
+}
+
+.filter-btn {
+  padding: 8px 18px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  border-radius: 50px;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-btn:hover {
+  background: #f1f5f9;
+}
+.filter-btn.active {
+  background-color: #10b981; /* Brand Green */
+  color: #ffffff; /* White text/icon */
+  border-color: #10b981;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+}
+.filter-btn.active i {
+  color: #ffffff;
+}
+/* MAP LAYOUT (2 Columns) */
+.map-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 25px;
+  align-items: start;
+}
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  background: #e2e8f0;
+}
+#map {
+  height: 100% !important;
+  width: 100% !important;
+  min-height: 500px;
+}
+
+.map-marker {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* The pulsing effect for user location */
+.user-location-pulse {
+  width: 12px;
+  height: 12px;
+  background-color: #3498db;
+  border-radius: 50%;
+  box-shadow: 0 0 0 rgba(52, 152, 219, 0.4);
+  animation: pulse 2s infinite;
+  border: 2px solid white;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 15px rgba(52, 152, 219, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+  }
+}
+
+.user-loc {
+  background: #3b82f6;
+  top: 50%;
+  left: 50%;
+}
+.bin-loc {
+  background: #10b981;
+}
+.active-bin {
+  transform: scale(1.3);
+  outline: 4px solid rgba(16, 185, 129, 0.3);
+}
+
+.map-legend {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: white;
+  padding: 12px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.leg-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot.blue {
+  background: #3b82f6;
+}
+.dot.green {
+  background: #10b981;
+}
+
+/* BIN DETAILS LIST */
+.bin-list h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.bin-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #f1f5f9;
+  transition: 0.3s;
+}
+
+.bin-card.expanded {
+  border: 2px solid #10b981;
+  box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.1);
+}
+
+.bin-info-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.bin-info-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.address {
+  margin: 4px 0 0 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.bin-stats {
+  display: flex;
+  gap: 15px;
+  font-size: 0.85rem;
+  color: #475569;
+  margin-bottom: 15px;
+}
+.bin-stats i {
+  color: #10b981;
+}
+
+.fill-meter-container {
+  margin-bottom: 15px;
+}
+.meter-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.meter-bar {
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.fill {
+  height: 100%;
+  border-radius: 10px;
+}
+.fill.green {
+  background: #10b981;
+}
+.fill.orange {
+  background: #f59e0b;
+}
+
+.accepted-icons {
+  display: flex;
+  gap: 12px;
+  font-size: 1.1rem;
+  color: #94a3b8;
+  margin-bottom: 20px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 15px;
+}
+
+/* GET DIRECTIONS BUTTON (Screenshot 381) */
+.btn-directions {
+  width: 100%;
+  padding: 14px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.2s;
+}
+
+.btn-directions:hover {
+  background: #059669;
+  transform: translateY(-2px);
+}
+
+/* Hide details by default for all cards */
+.bin-details-expand {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.2s;
+    opacity: 0;
+}
+
+/* Show details only when card has 'expanded' class */
+.bin-card.expanded .bin-details-expand {
+    max-height: 500px; /* Large enough to fit content */
+    opacity: 1;
+    margin-top: 15px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 15px;
+}
+
+/* Make the header look clickable */
+.bin-info-header {
+    cursor: pointer;
+}

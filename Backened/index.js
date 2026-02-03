@@ -41,7 +41,7 @@ mongoose
 
 app.use(
     session({
-      secret: "your_secret_key",
+      secret: process.env.SESSION_SECRET,
       resave: false,
       saveUninitialized: false,
     })
@@ -129,7 +129,12 @@ app.post("/login", async (req, res) => {
 });
 
 app.get("/profile", isAuthenticated, (req, res) => {
-    res.render("profile");
+    let userdata = User.findOne({firstname: res.locals.username});
+    res.render("profile",{userdata});
+  });
+
+  app.get("/rewards", isAuthenticated, (req, res) => {
+    res.render("rewards");
   });
 
 app.get("/dashboard", isAuthenticated, (req, res) => {
@@ -140,3 +145,12 @@ app.get("/logout", (req, res) => {
     res.clearCookie("username");
     res.redirect("/");
   });
+
+  app.get("/findBin",(req,res)=>{
+    res.render("find-bin");
+  });
+
+  app.get("/scan",(req,res)=>{
+    res.render("scan");
+  });
+

@@ -6,43 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - EcoBin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/profile.css">
 </head>
 
 <body>
+    <%- include("./navbar.ejs") %>
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-recycle"></i>
-                </div>
-                <span>EcoBin</span>
-            </div>
-            <nav class="nav-links">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Find Bin
-                </a>
-                <a href="#" class="nav-link">
-                    <i class="fas fa-qrcode"></i>
-                    Scan
-                </a>
-                <a href="#" class="nav-link">
-                    <i class="fas fa-trophy"></i>
-                    Rewards
-                </a>
-                <a href="#" class="nav-link">
-                    <i class="fas fa-chart-line"></i>
-                    Dashboard
-                </a>
-            </nav>
-            <div class="header-buttons">
-                <button class="btn btn-admin">Admin</button>
-                <button class="btn btn-profile">Profile</button>
-            </div>
-        </header>
-
         <!-- Profile Hero -->
         <section class="profile-hero">
             <div class="profile-header">
@@ -54,7 +23,7 @@
                         <div class="level-badge">8</div>
                     </div>
                     <div class="profile-details">
-                        <h1 class="profile-name">Rahul Kumar</h1>
+                        <h1 class="profile-name"> <%= username %></h1>
                         <p class="profile-title">Eco Enthusiast</p>
                         <div class="profile-meta">
                             <div class="meta-item">
@@ -81,7 +50,7 @@
                 <div class="stat-icon">
                     <i class="fas fa-recycle"></i>
                 </div>
-                <div class="stat-value">47</div>
+                <div class="stat-value"><%= username.list %></div>
                 <div class="stat-label">Items Recycled</div>
             </div>
             <div class="stat-card">
@@ -269,14 +238,15 @@
 
         <!-- Sign Out -->
         <div class="signout-section">
-            <button class="btn-signout">
+            <a class="btn-signout" href="/logout">
                 <i class="fas fa-sign-out-alt"></i>
-                Sign Out
-            </button>
+                Log Out
+            </a>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <%- include("./footer.ejs") %>
+    <script src="/JS/profile.js"></script>
 </body>
 
 </html>

@@ -6,42 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - EcoBin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 
 <body>
+    <%- include("./navbar.ejs") %>
     <div class="container">
         <!-- Header -->
-        <header class="header">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-recycle"></i>
-                </div>
-                <span>EcoBin</span>
-            </div>
-            <nav class="nav-links">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Find Bin
-                </a>
-                <a href="#" class="nav-link">
-                    <i class="fas fa-qrcode"></i>
-                    Scan
-                </a>
-                <a href="#" class="nav-link">
-                    <i class="fas fa-trophy"></i>
-                    Rewards
-                </a>
-                <a href="#" class="nav-link active">
-                    <i class="fas fa-chart-line"></i>
-                    Dashboard
-                </a>
-            </nav>
-            <div class="header-buttons">
-                <button class="btn btn-admin">Admin</button>
-                <button class="btn btn-profile">Profile</button>
-            </div>
-        </header>
 
         <!-- Dashboard Hero -->
         <section class="dashboard-hero">
@@ -345,48 +316,13 @@
                 </div>
             </div>
         </div>
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <div class="logo-icon small">
-                            <i class="fas fa-recycle"></i>
-                        </div>
-                        <span>EcoBin</span>
-                    </div>
-                    <p>Making e-waste recycling simple, rewarding, and transparent for everyone.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h3>Quick Links</h3>
-                        <a href="#">Find a Bin</a>
-                        <a href="#">Scan E-Waste</a>
-                        <a href="#">Rewards</a>
-                    </div>
-                    <div class="link-group">
-                        <h3>Resources</h3>
-                        <a href="#">How It Works</a>
-                        <a href="#">E-Waste Guide</a>
-                        <a href="#">Environmental Impact</a>
-                    </div>
-                    <div class="link-group">
-                        <h3>Contact</h3>
-                        <a href="mailto:hello@ecobin.app"><i class="far fa-envelope"></i> hello@ecobin.app</a>
-                        <a href="#"><i class="fas fa-phone-alt"></i> +1 (555) 123-4567</a>
-                        <a href="#"><i class="fas fa-map-marker-alt"></i> San Francisco, CA</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 EcoBin. All rights reserved.</p>
-                <p>Made with <span class="heart">❤️</span> for a greener future</p>
-            </div>
-        </footer>
+        
     </div>
 
+    <%- include("./footer.ejs") %>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
+    <script src="/JS/dashboard.js"></script>
 </body>
 
 </html>

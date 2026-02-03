@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Waste Scanner | EcoBin</title>
+    <link rel="stylesheet" href="/css/scan.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <%- include("./navbar.ejs") %>
+
+    <header class="scan-header">
+        <div class="header-content">
+            <h1>AI Waste Scanner</h1>
+            <p>Drop your e-waste and let AI detect and value your item instantly</p>
+        </div>
+    </header>
+
+    <main class="scan-container">
+        <div class="scanner-viewport">
+            <div class="scanner-grid">
+                <div class="corner top-left"></div>
+                <div class="corner top-right"></div>
+                
+                <div class="center-content">
+                    <i class="fa-solid fa-camera-retro main-cam-icon"></i>
+                    <p>Place item in the scanner area</p>
+                </div>
+
+                <div class="corner bottom-left"></div>
+                <div class="corner bottom-right"></div>
+
+                <div class="scanner-pills">
+                    <span><i class="fa-solid fa-camera"></i> Camera</span>
+                    <span><i class="fa-solid fa-weight-hanging"></i> Weight</span>
+                    <span><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Size</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="scan-actions">
+            <button class="btn-primary" onclick="startCamera()">
+                <i class="fa-solid fa-expand"></i> Start Scanning
+            </button>
+            <button class="btn-secondary" onclick="document.getElementById('file-upload').click()">
+                <i class="fa-solid fa-upload"></i> Upload Image
+            </button>
+            <input type="file" id="file-upload" accept="image/*" hidden onchange="handleFile(this)">
+        </div>
+    </main>
+    <%- include("./footer.ejs") %>
+    <script src="/JS/scan.js"></script>
+</body>
+</html>

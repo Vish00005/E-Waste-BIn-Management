@@ -15,7 +15,6 @@ body {
     color: #1e293b;
 }
 
-/* NAVBAR (Glassmorphism) */
 
 /* HERO SECTION */
 .hero {
@@ -501,26 +500,4 @@ display: flex;
     border-top: 1px solid #f1f5f9;
     color: #cbd5e1;
     padding: 80px 8% 40px 8%;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 40px;
-}
-
-.footer-links h4 { margin-bottom: 25px; font-size: 1.1rem; }
-.footer-links ul { list-style: none; }
-.footer-links li { margin-bottom: 12px; }
-.footer-links a { text-decoration: none; color: #64748b; transition: 0.3s; }
-.footer-links a:hover { color: #10b981; }
-
-.footer-bottom {
-    margin-top: 60px;
-    padding-top: 30px;
-    border-top: 1px solid #000000;
-    display: flex;
-    justify-content: space-between;
-    color: #94a3b8;
-    font-size: 0.9rem;
 }
