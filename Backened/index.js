@@ -13,6 +13,7 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const cookieParser = require("cookie-parser");
 
+const upload = require("./cloudConfig");
 
 app.use(express.static("../assets"));
 
@@ -151,10 +152,31 @@ app.get("/logout", (req, res) => {
   });
 
   app.get("/recycle",(req,res)=>{
-    res.render("recycle");
+    res.render("scan");
   });
 
   app.get("/about",(req,res)=>{
     res.render("about");
+
   });
+
+  app.post(
+    "/recycle",
+    upload.single("image"),
+    (req, res) => {
+      // Access the uploaded file via req.file
+      console.log("File uploaded to Cloudinary:", req.file.path);
+      res.send("File uploaded successfully!");
+    } 
+  );
+
+  app.post(
+    "/recycle",
+    upload.single("image"),
+    (req, res) => {
+      // Access the uploaded file via req.file
+      console.log("File uploaded to Cloudinary:", req.file.path);
+      res.send("File uploaded successfully!");
+    } 
+  );
 
