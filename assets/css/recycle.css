@@ -1,0 +1,97 @@
+/* Ensure the body takes full height for the background gradient */
+.form-page {
+    margin: 0;
+    padding: 50px 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #d1fae5 0%, #ffffff 100%);
+    display: flex;
+    justify-content: center;
+}
+
+.form-card {
+    background: white;
+    width: 90%;
+    max-width: 750px;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0, 78, 59, 0.05);
+}
+
+.form-header { text-align: center; margin-bottom: 35px; }
+.form-logo { font-size: 2rem; margin-bottom: 10px; }
+.form-header h2 { color: #064e3b; margin: 0; }
+.form-header p { color: #64748b; font-size: 0.9rem; }
+
+/* Grid Layouts */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
+
+.input-container { display: flex; flex-direction: column; margin-bottom: 18px; }
+.input-container label { font-weight: 600; font-size: 0.85rem; color: #1e293b; margin-bottom: 8px; }
+
+.input-container input, .input-container select {
+    padding: 12px 18px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    background: #f8fafc;
+    transition: 0.3s;
+}
+
+.input-container input:focus { border-color: #10b981; background: #fff; outline: none; }
+
+/* Radio Cards (Condition & Usage) */
+.radio-section { margin-bottom: 25px; }
+.section-label { display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 12px; color: #1e293b; }
+.radio-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+.radio-card { cursor: pointer; position: relative; }
+.radio-card input { position: absolute; opacity: 0; }
+
+.radio-content {
+    background: #f1f5f9;
+    padding: 12px;
+    text-align: center;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: 2px solid transparent;
+    transition: 0.2s;
+}
+
+.radio-card input:checked + .radio-content {
+    background: #f0fdf4;
+    border-color: #10b981;
+    color: #0c8b63;
+}
+
+/* File Upload Style */
+.file-box {
+    position: relative;
+    overflow: hidden;
+    background: #f1f5f9;
+    padding: 11px;
+    border-radius: 12px;
+    border: 1px dashed #cbd5e1;
+    text-align: center;
+}
+
+.file-box input { position: absolute; opacity: 0; cursor: pointer; left: 0; top: 0; width: 100%; height: 100%; }
+.file-box span { font-size: 0.9rem; color: #64748b; font-weight: 500; }
+
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    margin-top: 20px;
+    background: #10b981;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+    transition: 0.3s;
+}
+
+.submit-btn:hover { background: #059669; transform: translateY(-2px); }
