@@ -150,8 +150,8 @@ app.get("/logout", (req, res) => {
     res.render("find-bin");
   });
 
-  app.get("/scan",(req,res)=>{
-    res.render("scan");
+  app.get("/recycle",(req,res)=>{
+    res.render("recycle");
   });
 
   app.get("/about",(req,res)=>{

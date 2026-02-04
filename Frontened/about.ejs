@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | EcoBin</title>
+    <link rel="stylesheet" href="/css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <%- include("./navbar.ejs") %>
+
+    <header class="about-hero">
+        <div class="hero-content">
+            <span class="tag-label">Our Mission</span>
+            <h1>Turning E-Waste into <br><span class="gradient-text">Environmental Value</span></h1>
+            <p>EcoBin is an AI-powered ecosystem designed to make e-waste recycling effortless, transparent, and rewarding for everyone.</p>
+        </div>
+    </header>
+
+    
+
+        <section class="split-info-centered">
+    <div class="info-glass-card">
+        <div class="info-text">
+            <span class="mission-tag">Global Impact</span>
+            <h2>The E-Waste Crisis</h2>
+            <div class="divider"></div>
+            <p>Millions of tons of electronic waste end up in landfills every year, leaking toxic metals into our soil and water. We believe technology should be the solution, not the problem.</p>
+            
+            <ul class="check-list-centered">
+                <li><i class="fa-solid fa-circle-check"></i> Transparent tracking from bin to recycler</li>
+                <li><i class="fa-solid fa-circle-check"></i> Real-time environmental impact metrics</li>
+                <li><i class="fa-solid fa-circle-check"></i> Rewarding users for eco-friendly habits</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="team-section">
+    <div class="section-header">
+        <span class="tag-label">The Innovators</span>
+        <h2>Meet Our Team</h2>
+        <p>The minds behind EcoBin initiative.</p>
+    </div>
+
+    <div class="team-grid">
+        <div class="team-card">
+            <div class="member-image">
+                <img src="assets/member1.jpg" alt="Member Name">
+                <div class="social-overlay">
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+            <div class="member-info">
+                <h3>Vishal Khimsuriya</h3>
+                <p class="role">Lead Developer</p>
+                <span class="specialty">AI & Backend</span>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="member-image">
+                <img src="assets/member2.jpg" alt="Member Name">
+                <div class="social-overlay">
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+            <div class="member-info">
+                <h3>Yashvi Bhavsar</h3>
+                <p class="role">UI/UX Designer</p>
+                <span class="specialty">Frontend Architecture</span>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="member-image">
+                <img src="assets/member3.jpg" alt="Member Name">
+                <div class="social-overlay">
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+            <div class="member-info">
+                <h3>Vraj Patel</h3>
+                <p class="role">Frontend Developer</p>
+                <span class="specialty">Frontend Architecture</span>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+     <%- include("./footer.ejs") %>
+
+</body>
+</html>
