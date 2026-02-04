@@ -154,3 +154,7 @@ app.get("/logout", (req, res) => {
     res.render("scan");
   });
 
+  app.get("/about",(req,res)=>{
+    res.render("about");
+  });
+
