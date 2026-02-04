@@ -62,7 +62,7 @@
 .radio-card input:checked + .radio-content {
     background: #f0fdf4;
     border-color: #10b981;
-    color: #0c8b63;
+    color: #059669;
 }
 
 /* File Upload Style */
