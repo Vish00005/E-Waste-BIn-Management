@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify OTP | EcoBin</title>
-    <link rel="stylesheet" href="css/otp.css">
+    <link rel="stylesheet" href="/css/otp.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body class="otp-page">
@@ -14,11 +14,13 @@
         
         <div class="otp-header">
             <h2>Verification Code</h2>
-            <p>We've sent a 4-digit code to your registered email. Enter it below to verify your account.</p>
+            <p>We've sent a 6-digit code to your registered email. Enter it below to verify your account.</p>
         </div>
 
         <form id="otpForm" action="/verify" method="POST">
             <div class="otp-input-group">
+                <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required>
+                <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required>
                 <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required>
                 <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required>
                 <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required>
@@ -37,17 +39,38 @@
     </div>
 
     <script>
-        // Automatic focus shift script
-        const inputs = document.querySelectorAll('.otp-input-group input');
-        inputs.forEach((input, index) => {
-            input.addEventListener('keyup', (e) => {
-                if (e.key >= 0 && e.key <= 9) {
-                    if (index < inputs.length - 1) inputs[index + 1].focus();
-                } else if (e.key === 'Backspace') {
-                    if (index > 0) inputs[index - 1].focus();
-                }
-            });
+        // Automatic focus shift script - automatically scales to 6 inputs
+        // 1. Automatic focus shift script
+    const inputs = document.querySelectorAll('.otp-input-group input');
+    inputs.forEach((input, index) => {
+        input.addEventListener('keyup', (e) => {
+            if (e.key >= 0 && e.key <= 9) {
+                if (index < inputs.length - 1) inputs[index + 1].focus();
+            } else if (e.key === 'Backspace') {
+                if (index > 0) inputs[index - 1].focus();
+            }
         });
+    });
+
+    // 2. Decrementing Timer Logic
+    let timeLeft = 59; // Start at 59 seconds
+    const timerElement = document.getElementById('timer');
+    const resendBtn = document.getElementById('resendBtn');
+
+    const countdown = setInterval(() => {
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            timerElement.innerText = "00:00";
+            resendBtn.style.opacity = "1"; // Make resend link fully visible
+            resendBtn.style.pointerEvents = "auto"; // Enable clicking
+        } else {
+            timeLeft--;
+            // Formats the number to always show two digits (e.g., 00:09)
+            timerElement.innerText = `00:${timeLeft < 10 ? '0' : ''}${timeLeft}`;
+        }
+    }, 1000);
+    // Get all input values
+
     </script>
 </body>
 </html>
