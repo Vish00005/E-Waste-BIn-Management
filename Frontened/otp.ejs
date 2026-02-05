@@ -3,13 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Verify OTP | EcoBin</title>
+    <link rel="stylesheet" href="css/otp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body>
-    <form id="otpForm" action="/recycle/verify-otp" method="POST">
-        <label>Enter OTP</label>
-        <input type="text" name="otp" id="otp" required />
-        <button type="submit">Verify OTP</button>
-      </form>
+<body class="otp-page">
+
+    <div class="otp-container">
+        <div class="otp-logo">♻️ EcoBin</div>
+        
+        <div class="otp-header">
+            <h2>Verification Code</h2>
+            <p>We've sent a 4-digit code to your registered email. Enter it below to verify your account.</p>
+        </div>
+
+        <form id="otpForm" action="/verify" method="POST">
+            <div class="otp-input-group">
+                <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required>
+                <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required>
+                <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required>
+                <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required>
+            </div>
+
+            <button type="submit" class="verify-btn">Verify & Proceed</button>
+        </form>
+
+        <div class="otp-footer">
+            <p>Didn't receive the code? <a href="#" id="resendBtn">Resend Code</a></p>
+            <span id="timer">00:59</span>
+        </div>
+
+        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    </div>
+
+    <script>
+        // Automatic focus shift script
+        const inputs = document.querySelectorAll('.otp-input-group input');
+        inputs.forEach((input, index) => {
+            input.addEventListener('keyup', (e) => {
+                if (e.key >= 0 && e.key <= 9) {
+                    if (index < inputs.length - 1) inputs[index + 1].focus();
+                } else if (e.key === 'Backspace') {
+                    if (index > 0) inputs[index - 1].focus();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
