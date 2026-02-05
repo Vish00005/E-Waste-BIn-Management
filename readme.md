@@ -116,7 +116,7 @@ HAXplore/
 ⸻
 
 ##  Core Modules
-
+```text
 👤 User Management
 	•	Signup & Login
 	•	Secure password hashing
@@ -130,3 +130,4 @@ HAXplore/
 
 🗑️ Bin Management
 	•	Display available bins (location-based support)
+```
