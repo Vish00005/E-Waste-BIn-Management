@@ -50,14 +50,19 @@
                 <div class="stat-icon">
                     <i class="fas fa-recycle"></i>
                 </div>
-                <div class="stat-value"><%= username.list %></div>
+                <div class="stat-value"><%= userdata.recycledItems.length %></div>
                 <div class="stat-label">Items Recycled</div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">
                     <i class="fas fa-trophy"></i>
                 </div>
-                <div class="stat-value">1,250</div>
+                <% let count;
+                for(i=0;i<userdata.recycledItems.length;i++)
+                    {
+                        count = count +  userdata.recycledItems[i].pointsEarned
+                    } %>
+                <div class="stat-value"><%= count%></div>
                 <div class="stat-label">Points Earned</div>
             </div>
             <div class="stat-card">

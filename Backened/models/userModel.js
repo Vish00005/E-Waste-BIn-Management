@@ -32,7 +32,9 @@ const userSchema = new mongoose.Schema(
     recycledItems: {
       type: [recycledItemSchema],
       default: []
-    }
+    },
+    otp: String,
+otpExpiresAt: Date
   },
   { timestamps: true }
 );

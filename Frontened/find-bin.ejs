@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Smart Bin | EcoBin</title>
+    <link rel="stylesheet" href="/css/find-bin.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+</head>
+
+<body>
+
+    <%- include("./navbar.ejs") %>
+
+        <header class="find-header">
+            <div class="header-content">
+                <h1>Find a Smart Bin</h1>
+                <p>Select what you want to recycle and find the nearest compatible bin</p>
+            </div>
+        </header>
+
+        <main class="find-container">
+            <div class="filter-bar">
+                <span class="filter-label"><i class="fa-solid fa-filter"></i> Filter:</span>
+                <div class="filter-options">
+                    <button class="filter-btn"><i class="fa-solid fa-mobile-screen"></i> Phone</button>
+                    <button class="filter-btn"><i class="fa-solid fa-battery-half"></i> Battery</button>
+                    <button class="filter-btn"><i class="fa-solid fa-laptop"></i> Laptop</button>
+                    <button class="filter-btn"><i class="fa-solid fa-link"></i> Cable</button>
+                    <button class="filter-btn active"><i class="fa-solid fa-plug"></i> Charger</button>
+                </div>
+            </div>
+
+            <div class="map-layout">
+                <div class="map-wrapper">
+                    <div id="map" style="height: 500px; width: 100%;"></div>
+                    <button id="locate-btn" class="btn-directions" style="position: absolute; z-index: 1000; bottom: 20px; left: 20px; width: 95%;">
+                        <i class="fa-solid fa-location-crosshairs"></i> My Location
+                    </button>
+                </div>
+
+                <div class="bin-list">
+                    <h3>Nearby Bins (4 found)</h3>
+
+                    <div class="bin-card expanded">
+                        <div class="bin-info-header">
+                            <div>
+                                <h4>Green Tech Hub</h4>
+                                <p class="address">123 Eco Street, Downtown</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-up"></i>
+                        </div>
+                        <div class="bin-stats">
+                            <span><i class="fa-solid fa-location-arrow"></i> 0.5 km</span>
+                            <span><i class="fa-solid fa-person-walking"></i> 6 min walk</span>
+                            <span><i class="fa-solid fa-star"></i> 4.8</span>
+                        </div>
+                        <div class="fill-meter-container">
+                            <div class="meter-label"><span>Fill Level</span><span>45%</span></div>
+                            <div class="meter-bar">
+                                <div class="fill green" style="width: 45%;"></div>
+                            </div>
+                        </div>
+                        <div class="accepted-icons">
+                            <i class="fa-solid fa-mobile-screen" title="Phone"></i>
+                            <i class="fa-solid fa-battery-half" title="Battery"></i>
+                            <i class="fa-solid fa-laptop" title="Laptop"></i>
+                            <i class="fa-solid fa-link" title="Cable"></i>
+                            <i class="fa-solid fa-plug" title="Charger"></i>
+                        </div>
+                        <button class="btn-directions"><i class="fa-solid fa-paper-plane"></i> Get Directions</button>
+                    </div>
+
+                    <div class="bin-card">
+                        <div class="bin-info-header">
+                            <div>
+                                <h4>City Mall Recycling Point</h4>
+                                <p class="address">456 Commerce Ave, Mall Level 1</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="bin-stats">
+                            <span><i class="fa-solid fa-location-arrow"></i> 1.2 km</span>
+                            <span><i class="fa-solid fa-person-walking"></i> 15 min walk</span>
+                            <span><i class="fa-solid fa-star"></i> 4.5</span>
+                        </div>
+                        <div class="fill-meter-container">
+                            <div class="meter-label"><span>Fill Level</span><span>72%</span></div>
+                            <div class="meter-bar">
+                                <div class="fill orange" style="width: 72%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <%- include("./footer.ejs") %>
+
+        
+
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+       
+        <script>
+         
+        </script>
+         <script src="/JS/find-bin.js"></script>
+
+</body>
+
+</html>

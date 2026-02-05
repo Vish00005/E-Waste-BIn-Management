@@ -30,6 +30,14 @@ const recycledItemSchema = new mongoose.Schema(
       enum: ["working", "damaged", "dead"],
       default: "damaged"
     },
+    usagePeriod:{
+      type:String,
+      required: true,
+    },
+    imageUrl:{
+      type:String,
+      required: true,
+    },
     recycledAt: {
       type: Date,
       default: Date.now
