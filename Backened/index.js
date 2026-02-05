@@ -256,7 +256,7 @@ app.post("/recycle/verify-otp", isAuthenticated, async (req, res) => {
   if (!user || user.otp !== otp || user.otpExpiresAt < Date.now()) {
     return res.status(400).json({ error: "Invalid or expired OTP" });
   }
-  console.log("🧪 recycleData:", req.session.recycleData);
+
 
   user.recycledItems.push(req.session.recycleData);
 
