@@ -17,25 +17,20 @@
             <p>We've sent a 6-digit code to your registered email. Enter it below to verify your account.</p>
         </div>
 
-        <form id="otpForm" action="/verify" method="POST">
+        <form id="otpForm" action="/recycle/verify-otp" method="POST">
             <div class="otp-input-group">
-                <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required>
-                <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required>
-                <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required>
-                <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required>
-                <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required>
-                <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required>
+                <input type="text" maxlength="6"  inputmode="numeric" name="otp" required>
             </div>
 
             <button type="submit" class="verify-btn">Verify & Proceed</button>
         </form>
 
         <div class="otp-footer">
-            <p>Didn't receive the code? <a href="#" id="resendBtn">Resend Code</a></p>
+            <p>Didn't receive the code? <form action="/recycle" id="resendBtn" method="post"><button type="submit">Resend Code</button></form></p>
             <span id="timer">00:59</span>
         </div>
 
-        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        <a class="back-link" href="/recycle"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
     </div>
 
     <script>

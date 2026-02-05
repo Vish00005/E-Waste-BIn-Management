@@ -10,6 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <% let count=0; for(i=0;i<userdata.recycledItems.length;i++) { count=count +
+        userdata.recycledItems[i].pointsEarned } %>
+        <% let price=0; for(i=0;i<userdata.recycledItems.length;i++) { price=price +
+            userdata.recycledItems[i].estimatedPrice } %>
     <%- include("./navbar.ejs") %>
     <main class="main-content">
         <div class="rewards-header">
@@ -22,7 +26,7 @@
                     <div class="trophy-icon">🏆</div>
                     <div class="points-info">
                         <span class="points-label">Your Points</span>
-                        <span class="points-value" id="totalPoints">1,250</span>
+                        <span class="points-value" id="totalPoints"><%= count %></span>
                     </div>
                 </div>
             </div>
@@ -32,7 +36,7 @@
             <div class="stat-card" data-stat="items">
                 <div class="stat-icon green">✓</div>
                 <div class="stat-info">
-                    <div class="stat-value">47</div>
+                    <div class="stat-value"><%= userdata.recycledItems.length %></div>
                     <div class="stat-label">Items Recycled</div>
                 </div>
             </div>
@@ -66,13 +70,18 @@
             <div class="progress-header">
                 <div class="level-badge">
                     <span class="level-icon">⭐</span>
-                    <span>Level 8</span>
+                    <span>Level 1</span>
                 </div>
                 <span class="level-subtitle">Eco Enthusiast</span>
             </div>
             <div class="progress-bar-container">
                 <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
+                    <!-- <div class="progress-fill" id="progressFill"></div> -->
+                    <% if(!count) {%>
+                        <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                        <% } else { %>
+                            <div class="progress-fill" id="progressFill"></div>
+                            <% } %>
                 </div>
                 <div class="progress-info">
                     <span class="next-level">Next Level:</span>

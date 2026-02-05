@@ -277,7 +277,7 @@ function animateStats() {
 // Animate points counter
 function animatePoints() {
     const pointsElement = document.getElementById('totalPoints');
-    const targetPoints = 1250;
+    const targetPoints = document.getElementById('totalPoints').innerText;
     const duration = 2000;
     const steps = 60;
     const increment = targetPoints / steps;

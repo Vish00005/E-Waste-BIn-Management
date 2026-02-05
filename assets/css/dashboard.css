@@ -157,6 +157,7 @@ body {
     padding: 24px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease;
+    margin-bottom: 20px;
 }
 
 .card:hover {
@@ -213,6 +214,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    margin-bottom: 20px;
 }
 
 .activity-item {

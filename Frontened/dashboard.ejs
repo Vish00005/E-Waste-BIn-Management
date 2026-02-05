@@ -11,318 +11,195 @@
 
 <body>
     <%- include("./navbar.ejs") %>
-    <div class="container">
-        <!-- Header -->
+        <div class="container">
+            <!-- Header -->
 
-        <!-- Dashboard Hero -->
-        <section class="dashboard-hero">
-            <div class="hero-content">
-                <h1 class="hero-title">Your Dashboard</h1>
-                <p class="hero-subtitle">Track your recycling journey and environmental impact</p>
-            </div>
-        </section>
+            <!-- Dashboard Hero -->
+            <section class="dashboard-hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">Your Dashboard</h1>
+                    <p class="hero-subtitle">Track your recycling journey and environmental impact</p>
+                </div>
+            </section>
 
-        <!-- Stats Cards -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-header">
-                    <span class="stat-label">Total Recycled</span>
-                    <div class="stat-icon green">
-                        <i class="fas fa-recycle"></i>
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Total Recycled</span>
+                        <div class="stat-icon green">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value">
+                        <%= userdata.recycledItems.length %>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        +<%= userdata.recycledItems.length %> this month
                     </div>
                 </div>
-                <div class="stat-value">47</div>
-                <div class="stat-change positive">
-                    <i class="fas fa-arrow-up"></i>
-                    +5 this month
-                </div>
+                <% let count=0; for(i=0;i<userdata.recycledItems.length;i++) { count=count +
+                    userdata.recycledItems[i].pointsEarned } %>
+                    <% let price=0; for(i=0;i<userdata.recycledItems.length;i++) { price=price +
+                        userdata.recycledItems[i].estimatedPrice } %>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-label">Total Value</span>
+                                <div class="stat-icon blue">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                            </div>
+                            <div class="stat-value"><%= price %></div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <%= price %> this month
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-label">Points Earned</span>
+                                <div class="stat-icon yellow">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="stat-value"><%= count %></div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <%= count %> this month
+                            </div>
+                        </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-header">
-                    <span class="stat-label">Total Value</span>
-                    <div class="stat-icon blue">
-                        <i class="fas fa-wallet"></i>
+            <!-- Main Content Grid -->
+            <div class="content-grid">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Recycling Activity Chart -->
+                    <div class="card chart-card">
+                        <div class="card-header">
+                            <h2 class="card-title">Recycling Activity</h2>
+                            <div class="time-filter">
+                                <button class="filter-btn active" data-period="6m">
+                                    <i class="fas fa-calendar"></i>
+                                    Last 6 months
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="activityChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Recent Activity</h2>
+                            <a href="#" class="view-all">
+                                View all
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                        <div class="activity-list">
+                            
+                            <% for (let i = 0; i < userdata.recycledItems.length; i++) { %>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <div class="activity-name"><%= userdata.recycledItems[i].itemName %></div>
+                                    <div class="activity-meta">
+                                        <span class="activity-category"><%= userdata.recycledItems[i].category %></span>
+                                        <span class="activity-time"><%= userdata.recycledItems[i].condition %></span>
+                                    </div>
+                                </div>
+                                <div class="activity-reward">
+                                    <div class="reward-amount">₹ <%= userdata.recycledItems[i].estimatedPrice %></div>
+                                    <div class="reward-points">+<%= userdata.recycledItems[i].pointsEarned %> pts</div>
+                                </div>
+                            </div>
+                            <% } %>
+                            
+                        </div>
                     </div>
                 </div>
-                <div class="stat-value">₹8,450</div>
-                <div class="stat-change positive">
-                    <i class="fas fa-arrow-up"></i>
-                    ₹1,850 this month
-                </div>
-            </div>
 
-            <div class="stat-card">
-                <div class="stat-header">
-                    <span class="stat-label">Points Earned</span>
-                    <div class="stat-icon yellow">
-                        <i class="fas fa-star"></i>
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Environmental Impact -->
+                    <div class="card impact-card">
+                        <h2 class="card-title">Your Impact</h2>
+                        <div class="impact-list">
+                            <div class="impact-item">
+                                <div class="impact-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div class="impact-details">
+                                    <div class="impact-value">23.5 kg</div>
+                                    <div class="impact-label">CO₂ Prevented</div>
+                                </div>
+                            </div>
+
+                            <div class="impact-item">
+                                <div class="impact-icon">
+                                    <i class="fas fa-tint"></i>
+                                </div>
+                                <div class="impact-details">
+                                    <div class="impact-value">450 L</div>
+                                    <div class="impact-label">Water Saved</div>
+                                </div>
+                            </div>
+
+                            <div class="impact-item">
+                                <div class="impact-icon">
+                                    <i class="fas fa-tree"></i>
+                                </div>
+                                <div class="impact-details">
+                                    <div class="impact-value">3.2</div>
+                                    <div class="impact-label">Trees Equivalent</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="impact-message">
+                            <i class="fas fa-seedling"></i>
+                            <p>You've made an impact equivalent to <strong>planting 3 trees</strong></p>
+                        </div>
                     </div>
-                </div>
-                <div class="stat-value">1,250</div>
-                <div class="stat-change positive">
-                    <i class="fas fa-arrow-up"></i>
-                    +168 this month
-                </div>
-            </div>
-        </div>
 
-        <!-- Main Content Grid -->
-        <div class="content-grid">
-            <!-- Left Column -->
-            <div class="left-column">
-                <!-- Recycling Activity Chart -->
-                <div class="card chart-card">
-                    <div class="card-header">
-                        <h2 class="card-title">Recycling Activity</h2>
-                        <div class="time-filter">
-                            <button class="filter-btn active" data-period="6m">
-                                <i class="fas fa-calendar"></i>
-                                Last 6 months
+                   
+
+                    <!-- Quick Actions -->
+                    <div class="card quick-actions-card">
+                        <h2 class="card-title">Quick Actions</h2>
+                        <div class="actions-list">
+                            <button class="action-btn">
+                                <i class="fas fa-download"></i>
+                                <span>Download Receipt</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-file-export"></i>
+                                <span>Export Data</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-share-alt"></i>
+                                <span>Share Impact</span>
+                                <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="chart-container">
-                        <canvas id="activityChart"></canvas>
-                    </div>
-                </div>
-
-                <!-- Recent Activity -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">Recent Activity</h2>
-                        <a href="#" class="view-all">
-                            View all
-                            <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                    <div class="activity-list">
-                        <div class="activity-item">
-                            <div class="activity-icon">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <div class="activity-details">
-                                <div class="activity-name">iPhone 12 Pro</div>
-                                <div class="activity-meta">
-                                    <span class="activity-category">Smartphone</span>
-                                    <span class="activity-time">Today, 2:30 PM</span>
-                                </div>
-                            </div>
-                            <div class="activity-reward">
-                                <div class="reward-amount">₹450</div>
-                                <div class="reward-points">+45 pts</div>
-                            </div>
-                        </div>
-
-                        <div class="activity-item">
-                            <div class="activity-icon">
-                                <i class="fas fa-battery-full"></i>
-                            </div>
-                            <div class="activity-details">
-                                <div class="activity-name">Li-ion Battery</div>
-                                <div class="activity-meta">
-                                    <span class="activity-category">Battery</span>
-                                    <span class="activity-time">Yesterday, 11:00 AM</span>
-                                </div>
-                            </div>
-                            <div class="activity-reward">
-                                <div class="reward-amount">₹80</div>
-                                <div class="reward-points">+12 pts</div>
-                            </div>
-                        </div>
-
-                        <div class="activity-item">
-                            <div class="activity-icon">
-                                <i class="fas fa-plug"></i>
-                            </div>
-                            <div class="activity-details">
-                                <div class="activity-name">MacBook Charger</div>
-                                <div class="activity-meta">
-                                    <span class="activity-category">Charger</span>
-                                    <span class="activity-time">2 days ago</span>
-                                </div>
-                            </div>
-                            <div class="activity-reward">
-                                <div class="reward-amount">₹120</div>
-                                <div class="reward-points">+18 pts</div>
-                            </div>
-                        </div>
-
-                        <div class="activity-item">
-                            <div class="activity-icon">
-                                <i class="fas fa-cable-car"></i>
-                            </div>
-                            <div class="activity-details">
-                                <div class="activity-name">USB-C Cables (3x)</div>
-                                <div class="activity-meta">
-                                    <span class="activity-category">Cable</span>
-                                    <span class="activity-time">3 days ago</span>
-                                </div>
-                            </div>
-                            <div class="activity-reward">
-                                <div class="reward-amount">₹45</div>
-                                <div class="reward-points">+8 pts</div>
-                            </div>
-                        </div>
-
-                        <div class="activity-item">
-                            <div class="activity-icon">
-                                <i class="fas fa-laptop"></i>
-                            </div>
-                            <div class="activity-details">
-                                <div class="activity-name">Dell Laptop</div>
-                                <div class="activity-meta">
-                                    <span class="activity-category">Laptop</span>
-                                    <span class="activity-time">1 week ago</span>
-                                </div>
-                            </div>
-                            <div class="activity-reward">
-                                <div class="reward-amount">₹1,200</div>
-                                <div class="reward-points">+85 pts</div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Right Column -->
-            <div class="right-column">
-                <!-- Environmental Impact -->
-                <div class="card impact-card">
-                    <h2 class="card-title">Your Impact</h2>
-                    <div class="impact-list">
-                        <div class="impact-item">
-                            <div class="impact-icon">
-                                <i class="fas fa-leaf"></i>
-                            </div>
-                            <div class="impact-details">
-                                <div class="impact-value">23.5 kg</div>
-                                <div class="impact-label">CO₂ Prevented</div>
-                            </div>
-                        </div>
-
-                        <div class="impact-item">
-                            <div class="impact-icon">
-                                <i class="fas fa-tint"></i>
-                            </div>
-                            <div class="impact-details">
-                                <div class="impact-value">450 L</div>
-                                <div class="impact-label">Water Saved</div>
-                            </div>
-                        </div>
-
-                        <div class="impact-item">
-                            <div class="impact-icon">
-                                <i class="fas fa-tree"></i>
-                            </div>
-                            <div class="impact-details">
-                                <div class="impact-value">3.2</div>
-                                <div class="impact-label">Trees Equivalent</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="impact-message">
-                        <i class="fas fa-seedling"></i>
-                        <p>You've made an impact equivalent to <strong>planting 3 trees</strong></p>
-                    </div>
-                </div>
-
-                <!-- Items by Type -->
-                <div class="card">
-                    <h2 class="card-title">Items by Type</h2>
-                    <div class="items-list">
-                        <div class="item-type">
-                            <div class="item-info">
-                                <span class="item-name">Smartphones</span>
-                                <span class="item-count">15 items</span>
-                            </div>
-                            <div class="item-progress">
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 75%; background: #10b981;"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item-type">
-                            <div class="item-info">
-                                <span class="item-name">Batteries</span>
-                                <span class="item-count">12 items</span>
-                            </div>
-                            <div class="item-progress">
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 60%; background: #f59e0b;"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item-type">
-                            <div class="item-info">
-                                <span class="item-name">Cables</span>
-                                <span class="item-count">10 items</span>
-                            </div>
-                            <div class="item-progress">
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 50%; background: #10b981;"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item-type">
-                            <div class="item-info">
-                                <span class="item-name">Chargers</span>
-                                <span class="item-count">6 items</span>
-                            </div>
-                            <div class="item-progress">
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 30%; background: #10b981;"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item-type">
-                            <div class="item-info">
-                                <span class="item-name">Laptops</span>
-                                <span class="item-count">4 items</span>
-                            </div>
-                            <div class="item-progress">
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 20%; background: #3b82f6;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Actions -->
-                <div class="card quick-actions-card">
-                    <h2 class="card-title">Quick Actions</h2>
-                    <div class="actions-list">
-                        <button class="action-btn">
-                            <i class="fas fa-download"></i>
-                            <span>Download Receipt</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-file-export"></i>
-                            <span>Export Data</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-share-alt"></i>
-                            <span>Share Impact</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
         </div>
-        
-    </div>
 
-    <%- include("./footer.ejs") %>
+        <%- include("./footer.ejs") %>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="/JS/dashboard.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="/JS/dashboard.js"></script>
 </body>
 
 </html>

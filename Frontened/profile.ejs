@@ -20,7 +20,7 @@
                         <div class="avatar-circle">
                             <i class="fas fa-leaf avatar-icon"></i>
                         </div>
-                        <div class="level-badge">8</div>
+                        <div class="level-badge">1</div>
                     </div>
                     <div class="profile-details">
                         <h1 class="profile-name"> <%= username %></h1>
@@ -57,12 +57,12 @@
                 <div class="stat-icon">
                     <i class="fas fa-trophy"></i>
                 </div>
-                <% let count;
+                <% let count = 0;
                 for(i=0;i<userdata.recycledItems.length;i++)
                     {
                         count = count +  userdata.recycledItems[i].pointsEarned
                     } %>
-                <div class="stat-value"><%= count%></div>
+                <div class="stat-value"><%= count %></div>
                 <div class="stat-label">Points Earned</div>
             </div>
             <div class="stat-card">
@@ -92,7 +92,7 @@
                         </div>
                         <div class="info-content">
                             <div class="info-label">Full Name</div>
-                            <div class="info-value">Rahul Kumar</div>
+                            <div class="info-value"><%= username %></div>
                         </div>
                     </div>
                     <div class="info-item">
@@ -101,7 +101,7 @@
                         </div>
                         <div class="info-content">
                             <div class="info-label">Email</div>
-                            <div class="info-value">rahul.kumar@email.com</div>
+                            <div class="info-value"><%= userdata.email %></div>
                         </div>
                     </div>
                     <div class="info-item">
@@ -110,7 +110,7 @@
                         </div>
                         <div class="info-content">
                             <div class="info-label">Phone</div>
-                            <div class="info-value">+91 98765 43210</div>
+                            <div class="info-value"> +91 <%= userdata.phone %></div>
                         </div>
                     </div>
                     <div class="info-item">
@@ -130,10 +130,10 @@
                 <!-- Achievement Card -->
                 <div class="achievement-card">
                     <div class="achievement-header">
-                        <div class="achievement-badge">8</div>
+                        <div class="achievement-badge">1</div>
                         <div class="achievement-info">
                             <h3>Eco Enthusiast</h3>
-                            <p>Level 8</p>
+                            <p>Level 1</p>
                         </div>
                     </div>
                     <div class="progress-section">

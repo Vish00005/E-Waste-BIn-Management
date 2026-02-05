@@ -67,6 +67,7 @@ body {
 }
 
 .btn-green {
+    text-decoration: none;
     background: #10b981;
     color: white;
     border: none;
@@ -77,6 +78,7 @@ body {
 }
 
 .btn-glass {
+    text-decoration: none;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     color: white;
@@ -484,6 +486,8 @@ display: flex;
 }
 
 .btn-green-large {
+    display: block;
+    text-decoration: none;
     background: #10b981;
     color: white;
     border: none;

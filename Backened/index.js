@@ -52,8 +52,8 @@ app.use(
 app.use(bodyParser.json());
 app.use(cors());
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on http://0.0.0.0:${PORT}`);
 });
 
 app.use(flash());
@@ -175,11 +175,15 @@ app.get("/profile", isAuthenticated, (req, res) => {
 });
 
 app.get("/rewards", isAuthenticated, (req, res) => {
-  res.render("rewards");
+  res.render("rewards",{
+    userdata: req.user
+  });
 });
 
 app.get("/dashboard", isAuthenticated, (req, res) => {
-  res.render("dashboard");
+  res.render("dashboard",{
+    userdata: req.user
+  });
 });
 
 app.get("/logout", (req, res) => {
@@ -253,6 +257,8 @@ app.post("/recycle/verify-otp", isAuthenticated, async (req, res) => {
   const { otp } = req.body;
   const user = await User.findById(req.user.id);
 
+  console.log(user.otp);
+  console.log(otp);
   if (!user || user.otp !== otp || user.otpExpiresAt < Date.now()) {
     return res.status(400).json({ error: "Invalid or expired OTP" });
   }
@@ -267,7 +273,7 @@ app.post("/recycle/verify-otp", isAuthenticated, async (req, res) => {
 
   req.session.recycleData = null;
 
-  res.redirect("/")
+  res.redirect("/rewards")
 });
 
   app.post(
