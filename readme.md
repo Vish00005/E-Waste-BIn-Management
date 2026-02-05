@@ -54,9 +54,9 @@ This system aims to **digitize e-waste bin management** and **simplify the colle
 ## 📂 Project Structure
 HAXplore/
 │
-├── assets/                     # Static assets (CSS & images)
+├── assets/                      # Static assets (CSS, JS & images)
 │   ├── css/
-|   ├── JS/
+│   ├── js/
 │   ├── about.jpg
 │   ├── bg.jpeg
 │   ├── member2.jpeg
@@ -64,31 +64,31 @@ HAXplore/
 │   ├── vraj.jpeg
 │   └── wastes-570x570.jpeg
 │
-├── Backened/                   # Backend (Node.js + Express)
+├── Backened/                    # Backend (Node.js + Express)
 │   │
-│   ├── controller/             # Controllers (business logic)
+│   ├── controller/              # Controllers (business logic)
 │   │   ├── user.js
 │   │   └── web.js
 │   │
-│   ├── models/                 # Mongoose schemas
+│   ├── models/                  # Mongoose schemas
 │   │   ├── binModel.js
 │   │   ├── recycledItemsModel.js
 │   │   └── userModel.js
 │   │
-│   ├── routes/                 # Express routes
+│   ├── routes/                  # Express routes
 │   │   ├── userRoutes.js
 │   │   └── webRoutes.js
 │   │
-│   ├── utils/                  # Utility functions & middleware
+│   ├── utils/                   # Utility functions & middleware
 │   │   ├── isAuthenticated.js
 │   │   └── sendOtp.js
-│   │                   
-│   ├── cloudConfig.js          # Cloud / external service config
-│   ├── index.js                # Main server entry point
+│   │
+│   ├── cloudConfig.js           # Cloud / external service config
+│   ├── index.js                 # Main server entry point
 │   ├── package.json
 │   └── package-lock.json
 │
-├── Frontened/                  # Frontend views (EJS)
+├── Frontened/                   # Frontend views (EJS templates)
 │   ├── about.ejs
 │   ├── dashboard.ejs
 │   ├── find-bin.ejs
@@ -101,10 +101,9 @@ HAXplore/
 │   ├── rewards.ejs
 │   └── scan.ejs
 │
-├── .env        # Environment variables
+├── .env                         # Environment variables
 ├── .gitignore
 └── README.md
-
  ## Authentication Flow
 	•	User registers or logs in
 	•	Passwords are securely hashed using bcrypt
