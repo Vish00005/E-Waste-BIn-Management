@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config();
 
 const express = require("express");
 const app = express();
@@ -16,10 +16,10 @@ const webRoutes = require("./routes/webRoutes.js")
 
 //--------------------------EJS setup (Frontened as views)--------------------------
 app.set("view engine", "ejs");
-app.set("views", path.join(process.cwd(), "../Frontened"));
+app.set("views", path.join("./Frontened"));
 
 //--------------------------Static files (CSS/JS/images)--------------------------
-app.use(express.static("../assets"));
+app.use(express.static("./assets"));
 app.use(express.static(path.join(process.cwd(), "../Frontened")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
