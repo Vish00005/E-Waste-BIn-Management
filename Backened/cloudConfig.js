@@ -2,14 +2,14 @@ const multer = require("multer");
 const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
-// 1️⃣ Configure Cloudinary
+//--------------------------Configure Cloudinary--------------------------
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.CLOUD_API_KEY,
   api_secret: process.env.CLOUD_API_SECRET,
 });
 
-// 2️⃣ Configure Multer storage
+//--------------------------Configure Multer storage--------------------------
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
@@ -18,7 +18,7 @@ const storage = new CloudinaryStorage({
   },
 });
 
-// 3️⃣ Export multer upload middleware
+//--------------------------Export multer upload middleware--------------------------
 const upload = multer({ storage });
 
 module.exports = upload;

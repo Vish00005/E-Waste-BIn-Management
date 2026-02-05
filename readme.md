@@ -52,3 +52,80 @@ This system aims to **digitize e-waste bin management** and **simplify the colle
 ---
 
 ## 📂 Project Structure
+HAXplore/
+│
+├── assets/                     # Static assets (CSS & images)
+│   ├── css/
+|   ├── JS/
+│   ├── about.jpg
+│   ├── bg.jpeg
+│   ├── member2.jpeg
+│   ├── Vishal.jpeg
+│   ├── vraj.jpeg
+│   └── wastes-570x570.jpeg
+│
+├── Backened/                   # Backend (Node.js + Express)
+│   │
+│   ├── controller/             # Controllers (business logic)
+│   │   ├── user.js
+│   │   └── web.js
+│   │
+│   ├── models/                 # Mongoose schemas
+│   │   ├── binModel.js
+│   │   ├── recycledItemsModel.js
+│   │   └── userModel.js
+│   │
+│   ├── routes/                 # Express routes
+│   │   ├── userRoutes.js
+│   │   └── webRoutes.js
+│   │
+│   ├── utils/                  # Utility functions & middleware
+│   │   ├── isAuthenticated.js
+│   │   └── sendOtp.js
+│   │                   
+│   ├── cloudConfig.js          # Cloud / external service config
+│   ├── index.js                # Main server entry point
+│   ├── package.json
+│   └── package-lock.json
+│
+├── Frontened/                  # Frontend views (EJS)
+│   ├── about.ejs
+│   ├── dashboard.ejs
+│   ├── find-bin.ejs
+│   ├── footer.ejs
+│   ├── index.ejs
+│   ├── login.ejs
+│   ├── navbar.ejs
+│   ├── otp.ejs
+│   ├── recycle.ejs
+│   ├── rewards.ejs
+│   └── scan.ejs
+│
+├── .env        # Environment variables
+├── .gitignore
+└── README.md
+
+ ## Authentication Flow
+	•	User registers or logs in
+	•	Passwords are securely hashed using bcrypt
+	•	User session is maintained using HTTP-only cookies
+	•	Protected routes use isAuthenticated middleware
+	•	OTP verification supported via sendOtp.js
+
+⸻
+
+##  Core Modules
+
+👤 User Management
+	•	Signup & Login
+	•	Secure password hashing
+	•	Session-based authentication
+	•	OTP verification (email-based)
+
+♻️ Recycling Records
+	•	Track recycled items per user
+	•	Store recycling history in MongoDB
+	•	Display data on dashboard
+
+🗑️ Bin Management
+	•	Display available bins (location-based support)
