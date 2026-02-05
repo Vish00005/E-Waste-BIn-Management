@@ -52,9 +52,11 @@ This system aims to **digitize e-waste bin management** and **simplify the colle
 ---
 
 ## 📂 Project Structure
+
+```text
 HAXplore/
 │
-├── assets/                      # Static assets (CSS, JS & images)
+├── assets/
 │   ├── css/
 │   ├── js/
 │   ├── about.jpg
@@ -64,31 +66,30 @@ HAXplore/
 │   ├── vraj.jpeg
 │   └── wastes-570x570.jpeg
 │
-├── Backened/                    # Backend (Node.js + Express)
-│   │
-│   ├── controller/              # Controllers (business logic)
+├── Backened/
+│   ├── controller/
 │   │   ├── user.js
 │   │   └── web.js
 │   │
-│   ├── models/                  # Mongoose schemas
+│   ├── models/
 │   │   ├── binModel.js
 │   │   ├── recycledItemsModel.js
 │   │   └── userModel.js
 │   │
-│   ├── routes/                  # Express routes
+│   ├── routes/
 │   │   ├── userRoutes.js
 │   │   └── webRoutes.js
 │   │
-│   ├── utils/                   # Utility functions & middleware
+│   ├── utils/
 │   │   ├── isAuthenticated.js
 │   │   └── sendOtp.js
 │   │
-│   ├── cloudConfig.js           # Cloud / external service config
-│   ├── index.js                 # Main server entry point
+│   ├── cloudConfig.js
+│   ├── index.js
 │   ├── package.json
 │   └── package-lock.json
 │
-├── Frontened/                   # Frontend views (EJS templates)
+├── Frontened/
 │   ├── about.ejs
 │   ├── dashboard.ejs
 │   ├── find-bin.ejs
@@ -101,10 +102,11 @@ HAXplore/
 │   ├── rewards.ejs
 │   └── scan.ejs
 │
-├── .env                         # Environment variables
+├── .env
 ├── .gitignore
 └── README.md
- ## Authentication Flow
+```
+## Authentication Flow
 	•	User registers or logs in
 	•	Passwords are securely hashed using bcrypt
 	•	User session is maintained using HTTP-only cookies
