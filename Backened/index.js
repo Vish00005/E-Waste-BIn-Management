@@ -270,3 +270,13 @@ app.post("/recycle/verify-otp", isAuthenticated, async (req, res) => {
   res.redirect("/")
 });
 
+  app.post(
+    "/recycle",
+    upload.single("image"),
+    (req, res) => {
+      // Access the uploaded file via req.file
+      console.log("File uploaded to Cloudinary:", req.file.path);
+      res.send("File uploaded successfully!");
+    } 
+  );
+
