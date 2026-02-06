@@ -762,4 +762,115 @@ body {
         flex-direction: column;
         gap: 15px;
     }
+}/* --- PROFILE PAGE RESPONSIVE REFINEMENTS --- */
+
+/* 1. Large Tablets & Small Laptops (under 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding-top: 100px; /* Space for navbar if fixed */
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr; /* Stack main info and side panel */
+        gap: 25px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two stats per row */
+    }
+}
+
+/* 2. Tablets & Large Phones (under 768px) */
+@media (max-width: 768px) {
+    .profile-hero {
+        padding: 40px 25px;
+        text-align: center;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        align-items: center; /* Center profile on mobile */
+        gap: 25px;
+    }
+
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-name {
+        font-size: 28px;
+    }
+
+    .profile-meta {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn-edit {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr; /* Full width stats */
+    }
+
+    .qr-section {
+        padding: 30px 15px;
+    }
+
+    .settings-item {
+        padding: 15px;
+    }
+
+    .settings-info h3 {
+        font-size: 14px;
+    }
+}
+
+/* 3. Small Mobile Devices (under 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .profile-hero {
+        border-radius: 15px;
+    }
+
+    .avatar-circle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-name {
+        font-size: 24px;
+    }
+
+    .stat-card {
+        padding: 20px;
+    }
+
+    .stat-value {
+        font-size: 26px;
+    }
+
+    /* Checklist/Info item refinements */
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .info-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .qr-code {
+        width: 150px;
+        height: 150px;
+    }
 }

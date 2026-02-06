@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const sgMail = require("@sendgrid/mail");
 
 const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -8,10 +9,10 @@ const transporter = nodemailer.createTransport({
     },
   });
   async function sendOTP(email, otp) {
-    await transporter.sendMail({
-      from: `E-Waste Management`,
+    await sgMail.send({
       to: email,
-      subject: "Your Recycling OTP",
+      from: "vishal.j.khim@gmail.com", // same as verified
+      subject: "EcoBin",
       html: `
           <h3>OTP Verification</h3>
           <p>Your OTP is: <b>${otp}</b></p>

@@ -300,3 +300,96 @@ body {
 .bin-info-header {
     cursor: pointer;
 }
+/* --- RESPONSIVE ADJUSTMENTS --- */
+
+/* 1. Large Tablets & Small Laptops (under 1024px) */
+@media (max-width: 1024px) {
+  .map-layout {
+      grid-template-columns: 1fr; /* Stack map and list vertically */
+      gap: 30px;
+  }
+
+  .map-wrapper {
+      height: 450px; /* Reduce map height to avoid excessive scrolling */
+      order: 1; /* Keep map on top */
+  }
+
+  .bin-list {
+      order: 2;
+  }
+}
+
+/* 2. Tablets & Large Phones (under 768px) */
+@media (max-width: 768px) {
+  .find-header {
+      padding: 100px 5% 30px 5%;
+  }
+
+  .header-content h1 {
+      font-size: 1.8rem;
+  }
+
+  /* Filter Bar Scrollability */
+  .filter-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+      overflow-x: hidden;
+  }
+
+  .filter-options {
+      width: 100%;
+      overflow-x: auto; /* Allow filters to scroll sideways if too many */
+      padding-bottom: 5px;
+      -webkit-overflow-scrolling: touch;
+  }
+
+  .filter-btn {
+      white-space: nowrap; /* Prevent text wrapping inside buttons */
+  }
+
+  /* Map Adjustments */
+  .map-wrapper {
+      height: 350px;
+  }
+}
+
+/* 3. Small Mobile Devices (under 480px) */
+@media (max-width: 480px) {
+  .find-container {
+      padding: 0 4% 40px 4%;
+  }
+
+  .header-content h1 {
+      font-size: 1.5rem;
+  }
+
+  .header-content p {
+      font-size: 1rem;
+  }
+
+  .filter-bar {
+      padding: 15px;
+  }
+
+  /* Bin Cards Scaling */
+  .bin-card {
+      padding: 15px;
+  }
+
+  .bin-info-header h4 {
+      font-size: 1rem;
+  }
+
+  .bin-stats {
+      flex-direction: column; /* Stack distance and availability */
+      gap: 8px;
+  }
+
+  .map-legend {
+      bottom: 10px;
+      left: 10px;
+      padding: 8px 12px;
+      font-size: 0.75rem;
+  }
+}

@@ -22,3 +22,55 @@
     align-items: center; /* Centers the heading and paragraph */
     padding: 40px;
 }
+/* --- UNIVERSAL CARD & ICON RESPONSIVENESS --- */
+
+/* 1. Tablets and Small Laptops (under 1024px) */
+@media (max-width: 1024px) {
+    .grid-container, .card-grid {
+        grid-template-columns: repeat(2, 1fr); /* Switch from 3 or 4 columns to 2 */
+        gap: 20px;
+    }
+}
+
+/* 2. Standard Mobile Devices (under 768px) */
+@media (max-width: 768px) {
+    .card, .feature-card {
+        padding: 30px 20px; /* Maximize internal space */
+        min-height: auto;
+    }
+
+    .icon-circle, .icon-box {
+        width: 50px; /* Slightly smaller icons for mobile */
+        height: 50px;
+        font-size: 1.25rem;
+        margin-bottom: 15px;
+    }
+
+    .card h3, .feature-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+
+    .card p, .feature-card p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+}
+
+/* 3. Small Mobile Devices (under 480px) */
+@media (max-width: 480px) {
+    .grid-container, .card-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+    }
+
+    .card, .feature-card {
+        padding: 25px 15px;
+    }
+
+    /* Accessibility: Ensure buttons/links inside cards are easy to tap */
+    .card a, .card button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 15px;
+    }
+}

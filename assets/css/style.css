@@ -505,3 +505,69 @@ display: flex;
     color: #cbd5e1;
     padding: 80px 8% 40px 8%;
 }
+
+/* --- RESPONSIVE STYLES --- */
+
+/* 1. Large Tablets and Small Laptops (under 1024px) */
+@media (max-width: 1024px) {
+    .hero h1 { font-size: 3rem; }
+    .section { padding: 80px 5%; }
+    .timeline-container { max-width: 90%; }
+}
+
+/* 2. Tablets and Large Phones (under 768px) */
+@media (max-width: 768px) {
+    /* Hero Adjustments */
+    .hero { height: auto; padding: 120px 20px 80px 20px; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero-btns { flex-direction: column; gap: 10px; }
+    .btn-green, .btn-glass { width: 100%; text-align: center; }
+
+    /* Stats Bar */
+    .stats-row { flex-wrap: wrap; gap: 30px; }
+    .stat { flex: 1 1 40%; } /* Two items per row */
+
+    /* Timeline Transformation (Crucial: Flattens the timeline) */
+    .central-line { left: 20px; }
+    .timeline-item, .timeline-item.left { 
+        flex-direction: row; 
+        margin-bottom: 40px;
+    }
+    .timeline-dot { left: 20px; width: 40px; height: 40px; }
+    .timeline-content { 
+        width: calc(100% - 60px); 
+        margin-left: 60px; 
+    }
+    
+    /* Category/Detail Box */
+    .info-grid { grid-template-columns: 1fr; }
+    .detail-header { flex-direction: column; text-align: center; }
+    .detail-icon-large { margin: 0 auto; }
+    .category-grid { justify-content: flex-start; } /* Allow scrolling */
+
+    /* Impact Grid */
+    .impact-grid { grid-template-columns: 1fr; }
+}
+
+/* 3. Small Mobile Devices (under 480px) */
+@media (max-width: 480px) {
+    .hero h1 { font-size: 2rem; }
+    .section-header h2 { font-size: 1.8rem; }
+    
+    .stat { flex: 1 1 100%; } /* One item per row */
+    
+    .cta-box { padding: 30px 20px; border-radius: 20px; }
+    
+    .detail-display-box { padding: 25px; }
+    
+    .grid-3 { grid-template-columns: 1fr; } /* Force single column */
+}
+
+/* Helper for Horizontal Scrolling Categories on Mobile */
+.category-scroll-wrapper {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+.category-scroll-wrapper::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+}

@@ -1,91 +1,207 @@
 <nav class="navbar">
     <div class="nav-container">
-        <a href="/"  class="nav-logo"><div>♻️ EcoBin</div></a>
-        <div class="nav-links">
-            <a href="/"><i class="fa-solid fa-house"></i> Home</a>
-            <a href="/findBin"><i class="fa-solid fa-location-dot"></i> Find Bin</a>
-            <a href="/recycle"><i class="fa-solid fa-qrcode"></i> Recycle</a>
-            <a href="/rewards"><i class="fa-solid fa-trophy"></i> Rewards</a>
-            <a href="/about"><i class="fa-solid fa-chart-line"></i> About Us</a>
-
+        <a href="/" class="nav-logo">♻️ EcoBin</a>
+        
+        <div class="nav-toggle" id="navToggle" >
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <div class="nav-actions">
-            <a class="btn-admin" href="/dashboard">Dashboard</a>
-            <a class="btn-profile" href="/profile">Profile</a>
+
+        <div class="nav-menu" id="navMenu">
+            <div class="nav-links">
+                <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="/findBin"><i class="fa-solid fa-location-dot"></i> Find Bin</a>
+                <a href="/recycle"><i class="fa-solid fa-qrcode"></i> Recycle</a>
+                <a href="/rewards"><i class="fa-solid fa-trophy"></i> Rewards</a>
+                <a href="/about"><i class="fa-solid fa-chart-line"></i> About Us</a>
+            </div>
+            <div class="nav-actions">
+                <a class="btn-admin" href="/dashboard">Dashboard</a>
+                <a class="btn-profile" href="/profile">Profile</a>
+            </div>
         </div>
     </div>
 </nav>
 <style>
     * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-}
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+    
     .navbar {
-    position: fixed !important;
-    top: 0 !important;
-    width: 100% !important;
-    height: 70px !important;
-    background: rgba(255, 255, 255, 0.85)!important;
-    backdrop-filter: blur(10px)!important;
-    border-bottom: 1px solid rgba(226, 232, 240, 0.8)!important;
-    display: flex !important;
-    align-items: center !important;
-    z-index: 1000!important;
-}
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        display: flex;
+        align-items: center;
+        z-index: 1000;
+    }
+    
+    .nav-container {
+        width: 95%; /* Increased width slightly for better spacing */
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* 1. Fix Logo to the left */
+    .nav-logo {
+        flex: 0 0 auto; 
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #10b981;
+        text-decoration: none;
+        margin-right: 180px;
+    }
+    
+    /* 2. CENTER THE NAV MENU */
+    .nav-menu {
+        flex: 1; /* Occupies all available space */
+        display: flex;
+        justify-content: space-evenly; /* Centers items within that space */
+        align-items: center;
+    }
+    
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: #475569;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: 0.3s;
+        white-space: nowrap; /* Prevents text wrapping */
+    }
+    
+    .nav-links a:hover { color: #10b981; }
+    
+    /* 3. Push Actions to the right */
+    .nav-actions { 
+        flex: 0 0 auto; 
+        display: flex; 
+        gap: 12px; 
+         /* Safety push */
+    }
+    
+    .btn-admin {
+        text-decoration: none;
+        background: #ecfdf5;
+        color: #10b981;
+        border: 1px solid #10b981;
+        padding: 8px 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+    
+    .btn-profile {
+        text-decoration: none;
+        background: #10b981;
+        color: white;
+        padding: 8px 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+    
+    .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+    
+    .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: #10b981;
+        border-radius: 3px;
+        transition: 0.3s;
+    }
+    
+    /* MOBILE RESPONSIVE QUERIES */
+    @media (max-width: 1024px) {
+        .nav-toggle {
+            display: flex;
+            margin-left: auto; /* Pushes hamburger to the right */
+        }
+    
+        .nav-menu {
+            position: absolute;
+            top: 70px;
+            left: -100%;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background: white;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 40px 20px;
+            transition: 0.4s ease-in-out;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        }
+    
+        .nav-menu.active {
+            left: 0;
+        }
+    
+        .nav-links {
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    
+        .nav-links a {
+            font-size: 1.2rem;
+            padding: 15px 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: block;
+            color: #1e293b;
+        }
+    
+        .nav-actions {
+            flex-direction: column;
+            width: 100%;
+            gap: 15px;
+            margin-left: 0;
+        }
+    
+        .btn-admin, .btn-profile {
+            text-align: center;
+            width: 100%;
+            padding: 15px;
+        }
+    
+        .nav-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .nav-toggle.active span:nth-child(2) { opacity: 0; }
+        .nav-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    }
+    </style>
+<script>
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
 
-.nav-container {
-    width: 90%!important;
-    max-width: 1200px!important;
-    margin: 0 auto!important;
-    display: flex!important;
-    justify-content: space-between!important;
-    align-items: center!important;
-}
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
 
-.nav-logo {
-    font-size: 1.5rem!important;
-    font-weight: 700!important;
-    color: #10b981!important;
-    text-decoration: none!important;
-}
-
-.nav-links {
-    display: flex!important;
-    gap: 25px!important;
-}
-
-.nav-links a {
-    text-decoration: none!important;
-    color: #475569!important;
-    font-size: 0.95rem!important;
-    font-weight: 500!important;
-    transition: 0.3s!important;
-}
-
-.nav-links a:hover { color: #10b981!important; }
-
-.nav-actions { display: flex!important; gap: 12px!important; }
-
-.btn-admin {
-    text-decoration: none!important;
-    background: #ecfdf5!important;
-    color: #10b981!important;
-    border: 1px solid #10b981!important;
-    padding: 8px 20px!important;
-    border-radius: 50px!important;
-    cursor: pointer!important;
-}
-
-.btn-profile {
-    text-decoration: none!important;
-    background: #10b981!important;
-    color: white!important;
-    border: none!important;
-    padding: 8px 20px!important;
-    border-radius: 50px!important;
-    cursor: pointer!important;
-}
-
-</style>
+    // Close menu when a link is clicked (useful for one-page sites)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+</script>

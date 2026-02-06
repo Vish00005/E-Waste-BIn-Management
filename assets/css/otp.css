@@ -118,3 +118,69 @@
     font-size: 0.85rem;
     font-weight: 500;
 }
+/* --- OTP PAGE RESPONSIVE STYLES --- */
+
+/* 1. Tablets and Large Phones (under 768px) */
+@media (max-width: 768px) {
+    .otp-container {
+        padding: 40px 25px;
+        border-radius: 30px; /* Slightly smaller radius */
+    }
+
+    .otp-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .otp-input-group input {
+        height: 60px; /* Smaller boxes for tablets */
+        font-size: 1.5rem;
+        border-radius: 12px;
+    }
+}
+
+/* 2. Small Mobile Devices (under 480px) */
+@media (max-width: 480px) {
+    .otp-page {
+        padding: 20px;
+        align-items: flex-start; /* Better for vertical scrolling if keyboard opens */
+        padding-top: 10vh;
+    }
+
+    .otp-container {
+        padding: 30px 20px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .otp-logo {
+        font-size: 2rem;
+    }
+
+    .otp-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .otp-input-group {
+        gap: 8px; /* Tighter gap for small screens */
+    }
+
+    .otp-input-group input {
+        flex: 1; /* Allows inputs to shrink equally */
+        min-width: 40px; /* Prevents them from disappearing */
+        height: 55px;
+        font-size: 1.3rem;
+    }
+
+    .verify-btn {
+        padding: 14px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Landscape Mode Fix (For mobile devices held sideways) */
+@media (max-height: 500px) {
+    .otp-page {
+        height: auto;
+        padding: 40px 20px;
+    }
+}

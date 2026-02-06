@@ -445,3 +445,113 @@ body {
     transform: translateX(4px);
     color: #059669;
 }
+/* --- DASHBOARD RESPONSIVE STYLES --- */
+
+/* 1. Large Tablets & Small Laptops (under 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding-top: 80px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr; /* Stack columns vertically */
+        gap: 24px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two stats per row */
+    }
+
+    .dashboard-hero {
+        padding: 32px;
+    }
+}
+
+/* 2. Tablets & Large Phones (under 768px) */
+@media (max-width: 768px) {
+    .dashboard-hero {
+        text-align: center;
+        padding: 40px 24px;
+    }
+
+    .hero-title {
+        font-size: 24px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr; /* Single column stats */
+        gap: 16px;
+    }
+
+    .stat-card {
+        padding: 20px;
+    }
+
+    .stat-value {
+        font-size: 28px;
+    }
+
+    .chart-container {
+        height: 250px; /* Shorter charts on smaller screens */
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    /* Make activity meta stack if it gets too tight */
+    .activity-meta {
+        flex-wrap: wrap;
+    }
+}
+
+/* 3. Small Mobile Devices (under 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    /* Filter buttons might overflow, let them scroll horizontally */
+    .card-header div {
+        display: flex;
+        overflow-x: auto;
+        width: 100%;
+        padding-bottom: 5px;
+        gap: 8px;
+    }
+
+    .filter-btn {
+        white-space: nowrap;
+    }
+
+    .activity-item {
+        padding: 10px;
+    }
+
+    .activity-icon {
+        margin-right: 12px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .reward-amount {
+        font-size: 14px;
+    }
+
+    .impact-item {
+        gap: 12px;
+    }
+
+    .impact-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
