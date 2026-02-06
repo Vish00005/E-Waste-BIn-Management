@@ -76,3 +76,19 @@ app.use("/",webRoutes)
 
 //--------------------------UserRoutes(login/signup)--------------------------
 app.use("/user",userRoutes)
+
+app.use((req, res, next) => {
+  const error = new Error("Page Not Found");
+  error.status = 404;
+  next(error);
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+
+  res.status(err.status || 500).render("error", {
+    status: err.status || 500,
+    message: err.message || "Something went wrong",
+    error: err
+  });
+});

@@ -3,12 +3,18 @@ const bcrypt = require("bcryptjs");
 
 //--------------------------Login--------------------------
 module.exports.login = (req, res) => {
-  res.render("login");
+  try{
+    res.render("login");
+  } catch(err){
+    err.status = 500;
+    next(err);
+  }
 };
 
 //--------------------------SignUp Post--------------------------
 module.exports.postSignup = async (req, res) => {
-  let data = req.body;
+  try {
+    let data = req.body;
   await User.insertOne({
     firstname: data.firstname,
     lastname: data.lastname,
@@ -18,11 +24,16 @@ module.exports.postSignup = async (req, res) => {
   });
 
   res.redirect("/user/login");
+  } catch (err) {
+    err.status = 500;
+    next(err);
+  }
 };
 
 //--------------------------Login Post--------------------------
 module.exports.postLogin = async (req, res) => {
-  let data = req.body;
+  try {
+    let data = req.body;
   let user = await User.findOne({
     email: data.email,
   });
@@ -50,11 +61,20 @@ module.exports.postLogin = async (req, res) => {
     req.flash("error", "User Not Found");
     res.redirect("/login");
   }
+  } catch (err) {
+    err.status = 500;
+    next(err);
+  }
 };
 
 //--------------------------Logout--------------------------
 module.exports.logout = (req, res) => {
-  res.clearCookie("username");
+  try {
+    res.clearCookie("username");
   res.clearCookie("userId");
   res.redirect("/");
+  } catch (err) {
+    err.status = 500;
+    next(err);
+  }
 };
