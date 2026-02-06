@@ -3,7 +3,9 @@
 A web-based **E-Waste Management System** designed to promote responsible electronic waste disposal by enabling efficient collection, monitoring, and management of e-waste through a centralized platform.
 
 ---
-
+## 📌 Project LinK
+ Link : https://e-waste-bin-management.onrender.com
+---
 ## 📌 Problem Statement
 Electronic waste (e-waste) is one of the fastest-growing waste streams, causing serious environmental and health hazards. Lack of proper monitoring and management leads to inefficient collection and recycling.
 
