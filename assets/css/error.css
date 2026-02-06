@@ -32,3 +32,50 @@ h1{
     background-color: blue;
     box-shadow: 0 0 10px black;
 }
+/* --- ERROR PAGE RESPONSIVE STYLES --- */
+
+/* 1. Tablets and Large Phones (under 768px) */
+@media (max-width: 768px) {
+    .container {
+        height: auto; /* Allow height to grow with content */
+        min-height: 90vh;
+        padding: 40px 20px;
+    }
+
+    .error-box {
+        padding: 40px 30px;
+        border-radius: 24px;
+        text-align: center; /* Ensures text is centered on mobile */
+    }
+
+    h1 {
+        font-size: 35px; /* Scale down heading */
+    }
+}
+
+/* 2. Small Mobile Devices (under 480px) */
+@media (max-width: 480px) {
+    .error-box {
+        padding: 30px 20px;
+        width: 100%; /* Take full width on small screens */
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .error-box > a {
+        width: 100%; /* Make the link button easier to tap */
+        box-sizing: border-box;
+        text-align: center;
+    }
+}
+
+/* Handle landscape mode or very short screens */
+@media (max-height: 500px) {
+    .container {
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
